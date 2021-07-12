@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Quantum</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/index-grid.css" />
+
+    <!-- Scripts -->
+    <script src="/javascript/index.js"></script>
+  </head>
+
+  <!-- Body start -->
+  <body class="body">
+    <!-- Header section -->
+    <header>
+      <div class="site-icon">
+        <img
+          src="/quantum screen assets/icons/logo used in header.svg"
+          alt="Quantum Icon"
+        />
+      </div>
+    </header>
+    <hr class="headerLine" />
+
+    <!-- Main section -->
+    <main>
+      <hr class="formLine" />
+      <form class="loginForm" method="POST">
+        <div class="formHeader">
+          <img src="quantum screen assets/icons/back.png" alt="Back button" />
+          <p>Log in with Quantum</p>
+        </div>
+
+        <div class="redioDiv">
+          <input type="radio" id="id1" name="radio1" value="value1" checked />
+          <label for="id1">District</label>  
+          <input type="radio" id="id2" name="radio2" value="value2" />
+          <label for="id2">Independent school</label>
+        </div>
+
+        <div class="selectState">
+          <label for="state">State*</label><br />
+          <select name="state" id="state">
+            <option value="alabama">Alabama</option>
+            <option value="s2">S2</option>
+            <option value="s3">S3</option>
+            <option value="s4">S4</option>
+          </select>
+        </div>
+
+        <div class="selectDistrict">
+          <label for="district">District*</label><br />
+          <select name="district" id="district">
+            <option value="alabama school district">
+              Alabama School District
+            </option>
+            <option value="d2">S2</option>
+            <option value="d3">S3</option>
+            <option value="d4">S4</option>
+          </select>
+        </div>
+
+        <div class="username">
+          <input
+            type="text"
+            id="uname"
+            name="uname"
+            placeholder="Username/Email ID*"
+            required
+          /><br />
+
+          <label for="fname">FORGOT USERNAME?</label>
+        </div>
+
+        <div class="password">
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Password*"
+            required
+          />
+          <img
+            src="quantum screen assets/icons/preview.svg"
+            alt="Password show icon"
+            class="bi bi-eye-slash"
+            id="togglePassword"
+          />
+          <br />
+
+          <label for="fname">FORGOT PASSWORD?</label>
+        </div>
+
+        <div class="rememberMe">
+          <img
+            src="quantum screen assets/icons/checkbox-checked.svg"
+            alt="Checked checkbox"
+          />
+          <p>Remember Me</p>
+        </div>
+
+        <div class="loginButton" onclick="dashboard()">
+          <button type="submit">Login</button>
+        </div>
+      </form>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+      <div class="aboutUs">
+        About&nbsp;<span style="color: #d2d2d2">|</span>&nbsp;Contact Us
+      </div>
+
+      <div class="copyrightDateils">
+        <img
+          src="quantum screen assets/icons/logo used in footer.svg"
+          alt="Quantum Icon"
+        />
+        <p style="margin: 0%">&emsp;</p>
+        <div class="vLine">
+          &emsp;&emsp;Copyright &nbsp; <span>&copy;</span> &nbsp; 2021-2021
+          &emsp; <strong>Zeus System Pvt. Ltd.</strong> &emsp; All rights
+          reserved.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

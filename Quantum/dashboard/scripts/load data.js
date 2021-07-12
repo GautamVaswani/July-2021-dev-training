@@ -1,0 +1,384 @@
+// Load course data
+let courseData = "/dashboard/data/course data.json";
+document.addEventListener("DOMContentLoaded", function(event) { 
+    fetch(courseData)
+    .then(response => response.json())    
+    .then(data => {
+
+        let markupFullCourse = ``;
+        
+        for(var course of data){
+            //document.getElementById("coursesGrid").innerHTML += markup;
+            //console.log(course.id)
+            
+            let courseID = course.id;
+            let courseImg = course.image;
+            let courseTitle = course.title;
+            let courseSubject = course.subject;
+            let courseGrade = course.grade;
+            let courseGradeUpto = course.gradeUpto;
+            let courseUnits = course.units;
+            let courseLessons = course.lessons;
+            let courseTopics = course.topics;
+            let courseClasses = course.classes;
+            let courseStudents = course.students;
+            let courseDateFrom = course.dateFrom;
+            let courseDateTo = course.dateTo;
+            let courseFavourite = course.favourite;
+            let coursePreview = course.preview;
+            let courseManageCourse = course.manageCourse;
+            let courseGradeSubmission = course.gradeSubmission;
+            let courseReport = course.report;
+            let courseExpired = course.expired;
+
+            // Course details div
+            
+            let favourite = ``;
+            if(courseFavourite){
+                favourite = `/quantum screen assets/icons/favourite.svg`;
+            } else{
+                favourite = `/quantum screen assets/icons/favouriteUnmarked.svg`;
+            }
+
+
+            let expired = ``;
+            if(courseExpired){
+                expired = `<div class="status">Expired</div>`;
+            } else{
+                expired = `<div class="status" style="display: none">Expired</div>`;
+            }
+
+
+            let row5 =``;
+            // console.log(courseStudents, courseDateFrom, courseDateTo);
+            if(courseStudents!=undefined && courseDateFrom != undefined){
+                row5 = `<p><span class="studentCount">${courseStudents} Students</span>
+                <span class="date"> | ${courseDateFrom} - ${courseDateTo}</span></p>`;                
+            } else{
+                if(courseStudents!= undefined && courseDateFrom == undefined){
+                    row5 = `<p><span class="studentCount">${courseStudents} Students</span>
+                    <span class="date" style="display: none"> | ${courseDateFrom} - ${courseDateTo}</span></p>`; 
+                } else if(courseStudents= undefined && courseDateFrom != undefined){
+                    row5 = `<p><span class="studentCount"  style="display: none">${courseStudents} Students</span>
+                    <span class="date"> | ${courseDateFrom} - ${courseDateTo}</span></p>`;
+                }
+            }    
+        
+
+            let markupCourseDetails = `
+            <div class="course">
+            
+                ${expired}
+            
+                <div class="courseDetails">
+                    <div class="courseImage">
+                        <img
+                            class="image"
+                            src="${courseImg}"
+                            alt=""
+                        />
+                    </div>
+                    
+                    <div class="details">
+                        <div class="row1">
+                            <p>${courseTitle}</p>
+                            <img
+                            src="${favourite}" 
+                            alt=""
+                            />
+                        </div>
+                        <div class="row2">
+                            <p>${courseSubject} | Grade ${courseGrade} <span>+${courseGradeUpto}</span></p>
+                        </div>
+                        <div class="row3">
+                            <p>
+                            <span>${courseUnits} </span> Units <span>${courseLessons}</span> Lessons
+                            <span>${courseTopics}</span> Topics
+                            </p>
+                        </div>
+                        <div class="row4">
+                            <select name="sortType" id="sortType">
+                            <option value="courseName">${courseClasses}</option>
+                            <option value="o2">O2</option>
+                            <option value="O3">O3</option>
+                            <option value="O4">O4</option>
+                            </select>
+                        </div>
+                        <div class="row5">
+                            ${row5}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            `;
+            
+
+
+
+            // Manage course icons div 
+            let preview;
+            if(coursePreview){
+                preview = `<img src="/quantum screen assets/icons/preview.svg" alt="" />`;
+            } else{
+                preview = `<img src="/quantum screen assets/icons/preview.svg" alt="" style="opacity: 0.5"/>`;
+            }
+
+            let manageCourse;
+            if(courseManageCourse){
+                manageCourse = `<img src="/quantum screen assets/icons/manage course.svg" alt="" />`;
+            } else{
+                manageCourse = 
+                `<img src="/quantum screen assets/icons/manage course.svg" alt="" style="opacity: 0.5"/>`;
+            }
+
+
+            let gradeSubmission;
+            if(courseGradeSubmission){
+                gradeSubmission = `<img
+                src="/quantum screen assets/icons/grade submissions.svg"
+                alt=""
+            />`
+            } else{
+                gradeSubmission = `<img
+                src="/quantum screen assets/icons/grade submissions.svg"
+                alt=""
+                style="opacity: 0.5"
+            />`
+            }
+
+            let report;
+            if(courseReport){
+                report = `<img src="/quantum screen assets/icons/reports.svg" alt="" />`
+            } else{
+                report = `<img src="/quantum screen assets/icons/reports.svg" alt=""style="opacity:0.5"/>`
+            }
+
+
+            let markupManageCourse = `<div class="manageCourse" id="manage${courseID}">
+            ${preview}
+            ${manageCourse}
+            ${gradeSubmission}
+            ${report}
+            </div>`
+
+            // Full course div markup
+            markupFullCourse = `<div class="courseContainer" id="${courseID}">
+            ${markupCourseDetails}
+            ${markupManageCourse}
+            </div>`;
+
+            document.getElementById("coursesGrid").innerHTML += markupFullCourse;
+        }
+    })
+  });
+
+// Load alert data
+let alertData = "/dashboard/data/alert data.json";
+let alertIcon = document.querySelector(".alert-div");
+
+alertIcon.addEventListener("mouseenter", function(event){
+    fetch(alertData)
+    .then(response => response.json())    
+    .then(data => {
+
+        document.getElementById("alerts-container").innerHTML = ``;
+        
+        for(var alert of data){
+            
+            let alertID = alert.id;
+            let alertMessage = alert.alertMessage;
+            let alertImage = alert.image;
+            let alertExtraDetails = alert.extraDetails;
+            let alertDate = alert.date;
+
+            
+            let alertRow1 = ``;
+            if(alertMessage != undefined){
+                alertRow1 = `
+                <div class="alert-row1">
+                        <textarea
+                          name="alert-message"
+                          cols="34"
+                          rows="2"
+                          maxlength="40"
+                          readonly
+                        >${alertMessage}</textarea
+                        >
+                        <img
+                          src="${alertImage}"
+                          alt=""
+                        />
+                </div>
+                `;
+            }
+            else{
+                alertRow1 = `
+                <div class="alert-row1" style="display:none">
+                        <textarea
+                          name="alert-message"
+                          cols="34"
+                          rows="2"
+                          maxlength="40"
+                          readonly
+                        >${alertMessage}</textarea
+                        >
+                        <img
+                          src="${alertImage}"
+                          alt=""
+                        />
+                </div>
+                `;
+            }
+
+            let alertRow2 = ``;
+            if(alertExtraDetails != undefined){
+                alertRow2 = `
+                <div class="alert-row2">
+                    <p>${alertExtraDetails}</p>
+                </div>
+                `;
+            }
+            else{
+                alertRow2 = `
+                <div class="alert-row2" style="display: none">
+                    <p>${alertExtraDetails}</p>
+                </div>
+                `;
+            }
+
+            let alertRow3 = ``;
+            if(alertDate != undefined){
+                alertRow3 = `
+                    <div class="alert-row3">
+                        <p>${alertDate}</p>
+                    </div>
+                `;
+            }
+            else{
+                alertRow3 = `
+                    <div class="alert-row3" style="display: none">
+                        <p>${alertDate}</p>
+                    </div>
+                `;
+            }
+
+            let alertMarkup = `
+            <div class="alerts ${alertID}">
+                  ${alertRow1}
+                  ${alertRow2}
+                  ${alertRow3}
+                </div>
+            `;
+
+            document.getElementById("alerts-container").innerHTML += alertMarkup;
+        }
+
+    })
+});
+
+// Load announcement data
+let announcementData = "/dashboard/data/announcement data.json";
+let announcementIcon = document.querySelector(".announcements-div");
+
+announcementIcon.addEventListener("mouseenter", function(event){
+    fetch(announcementData)
+    .then(response => response.json())    
+    .then(data => {
+
+        document.getElementById("announcements-container").innerHTML = ``;
+        
+        for(var announcement of data){
+            
+            let announcementID = announcement.id;
+            let announcementFrom = announcement.announcementFrom;
+            let announcementImage = announcement.image;
+            let announcementMessage = announcement.announcementMessage;
+            let announcementExtraDetails = announcement.extraDetails;
+            let announcementFiles = announcement.files;
+            let announcementDate = announcement.date;
+
+            
+
+            // Row 1
+            let announcementRow1 = `
+            <div class="announcement-row1">
+              <p><span>PA:</span> ${announcementFrom}</p>
+              <img
+                src="${announcementImage}"
+                alt=""
+              />
+            </div>
+            `;
+
+
+            // Row 2
+            let announcementRow2 = `
+            <div class="announcement-row2">
+              <textarea
+                name="alert-message"
+                cols="34"
+                rows="2"
+                maxlength="40"
+                readonly
+              >
+${announcementMessage}
+              </textarea>
+            </div>
+            `;
+
+            // Row 3
+            let announcementRow3 = ``;
+            if(announcementExtraDetails != undefined){
+                announcementRow3 = `
+                <div class="announcement-row3">
+                    <p>${announcementExtraDetails}</p>
+                </div>`;
+            }
+            else{
+                announcementRow3 = `
+                <div class="announcement-row3" style="display: none;">
+                    <p>${announcementExtraDetails}</p>
+                </div>`;
+            }
+
+
+            // Row 4
+
+            let attachment = ``;
+            if(announcementFiles != undefined){
+                attachment = `<p>&#128206; Files attached</p>`
+            }
+            else{
+                attachment = `<p style="display: none;">&#128206; Files attached</p>`
+            }
+
+            let date = ``;
+            if(announcementDate != undefined){
+                date = `<p class="announcement-date">${announcementDate}</p>`
+            }
+            else{
+                date = `<p class="announcement-date" style="display: none;">${announcementDate}</p>`
+            }
+
+            let announcementRow4 = `
+            <div class="announcement-row4">
+              ${attachment}
+              ${date}
+            </div>
+            `;
+            
+
+            let announcementMarkup = `
+            <div class="announcement ${announcementID}">
+                  ${announcementRow1}
+                  ${announcementRow2}
+                  ${announcementRow3}
+                  ${announcementRow4}
+                </div>
+            `;
+
+            document.getElementById("announcements-container").innerHTML += announcementMarkup;
+        }
+
+    })
+});

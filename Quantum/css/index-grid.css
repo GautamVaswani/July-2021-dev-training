@@ -1,0 +1,27 @@
+body {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 55px 3px auto 80px;
+  grid-template-areas:
+    "h"
+    "hl"
+    "m"
+    "f";
+}
+
+header {
+  /* align-items: center; */
+  grid-area: h;
+}
+
+.headerLine {
+  grid-area: hl;
+}
+
+main {
+  grid-area: m;
+}
+
+footer {
+  grid-area: f;
+}

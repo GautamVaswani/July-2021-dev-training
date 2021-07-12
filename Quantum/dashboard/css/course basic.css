@@ -1,0 +1,80 @@
+.courseContainer {
+  background-color: white;
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 0; /* 10px */
+  padding-bottom: 10px;
+}
+
+.courseContainer > .manageCourse {
+  display: flex;
+  justify-content: space-around;
+}
+
+.course {
+  max-width: 450px;
+  width: 100%;
+}
+
+.course > .courseDetails {
+  display: flex;
+  margin-bottom: 10px;
+  padding: 20px 5px; /* 10px 0 */
+  border-bottom: lightgrey solid 1px;
+  width: auto;
+}
+
+.course > .courseDetails > * {
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-left: 10px;
+}
+
+.courseDetails > .details {
+  width: 100%;
+}
+
+.course > .courseDetails > .details > div {
+  display: flex;
+}
+
+.courseImage {
+  justify-content: center;
+  object-fit: cover;
+}
+
+.course > .courseDetails > .details > div > p {
+  margin: 0;
+}
+
+.row1 {
+  justify-content: space-between;
+}
+
+.row2 > p > span {
+  color: limegreen;
+}
+
+.row3 > p > span {
+  font-weight: bold;
+}
+
+.row4 > select {
+  width: 100%;
+  border: none;
+  border-bottom: solid lightgrey 2px;
+}
+
+/* Expired styling */
+.status {
+  color: #ef8788;
+  background-color: #fee1e3;
+  width: fit-content;
+  position: absolute;
+  height: fit-content;
+  z-index: 1;
+}
+/* Expired styling */

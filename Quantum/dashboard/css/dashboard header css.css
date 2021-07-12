@@ -1,0 +1,145 @@
+header > div > p {
+  height: inherit;
+  width: auto;
+  color: #40d48c;
+  font-size: 1em;
+  margin: 0;
+  padding: 10px;
+}
+/* display: flex; */
+
+.site-icon > img {
+  height: 48px;
+  width: auto;
+  margin-top: 6px;
+  padding-left: 15px;
+  border: none;
+  justify-content: left;
+  align-content: center;
+}
+
+/* NAV*/
+.nav {
+  margin-left: auto;
+  display: flex;
+  text-align: right;
+  height: inherit;
+  /* line-height: 70px; */
+}
+
+.burgerMenuDiv {
+  align-self: center;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  /* margin: 0 30px 0 0; */
+}
+
+.menu a {
+  clear: right;
+  text-decoration: none;
+  color: #40d48c;
+  margin: 0 10px;
+  line-height: 70px;
+}
+
+/* span {
+    color: #54d17a;
+  } */
+
+.burgerMenu {
+  display: flex;
+  font-size: 28px;
+  color: #40d48c;
+  display: none;
+  align-items: center;
+  justify-self: center;
+}
+
+/* #toggle {
+    display: none;
+  } */
+
+.images {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+.images > div > img {
+  margin: auto 0;
+}
+/* NAV ends */
+
+.alertDiv,
+.announcementsDiv,
+.profileDiv {
+  color: white;
+  width: max-content;
+  padding: 10px;
+}
+
+.announcementsDiv {
+  align-self: center;
+}
+
+.menu > .dashboardDiv {
+  color: white;
+}
+
+@media only screen and (max-width: 900px) {
+  .burgerMenuDiv {
+    align-self: auto;
+  }
+
+  .burgerMenu {
+    display: flex;
+    cursor: pointer;
+    padding: 10px;
+    justify-self: right;
+  }
+
+  .menu {
+    text-align: center;
+    width: 100%;
+    display: none;
+  }
+  .menu a {
+    display: block;
+    border-bottom: 1px solid #eaeaeb;
+    margin: 0;
+  }
+
+  .nav {
+    flex-direction: row-reverse;
+  }
+
+  /* Hamburger Hover */
+
+  .burgerMenuDiv {
+    position: relative;
+  }
+
+  .burgerMenu:hover + .menu {
+    display: block;
+    position: absolute;
+    width: 200px;
+    height: fit-content;
+    background-color: white;
+    color: #40d48c;
+    z-index: 3;
+    right: 0;
+    top: 60px;
+  }
+
+  .menu > .dashboardDiv {
+    color: #40d48c;
+  }
+
+  /* For onClick Functionality */
+  /* #toggle:checked + .menu {
+      display: block;
+    } */
+}

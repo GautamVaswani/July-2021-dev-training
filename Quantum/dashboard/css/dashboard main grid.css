@@ -1,0 +1,15 @@
+main > .coursesGrid {
+  margin-top: 10px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: auto;
+  justify-content: space-evenly;
+}
+
+@media only screen and (max-width: 900px) {
+  main > .coursesGrid {
+    grid-template-columns: repeat(1, 1fr);
+    grid-auto-rows: auto;
+  }
+}

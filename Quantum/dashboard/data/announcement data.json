@@ -1,0 +1,72 @@
+[
+    {
+        "id": "announcement1",
+        "announcementFrom": "Wilson Kumar",
+        "image": "/quantum screen assets/icons/ok icon.png",
+        "announcementMessage": "No class will be held on 21st Nov",
+        "files": "2 files are attached",
+        "date": "15-Sep-2018 at 07:21"
+    },
+
+    {
+        "id": "announcement2",
+        "announcementFrom": "Samson White",
+        "image": "/quantum screen assets/icons/not ok icon.png",
+        "announcementMessage": "Guest lecture on Geometry on 20th September",
+        "files": "2 files are attached",
+        "date": "15-Sep-2018 at 05:21"
+    },
+    
+    {
+        "id": "announcement3",
+        "announcementFrom": "Willson Kumar",
+        "image": "/quantum screen assets/icons/ok icon.png",
+        "announcementMessage": "Additional course materials available on request",
+        "extraDetails": "Course: Mathematics 101",
+        "date": "15-Sep-2018 at 05:21"
+    },
+
+    {
+        "id": "announcement4",
+        "announcementFrom": "Willson Kumar",
+        "image": "/quantum screen assets/icons/not ok icon.png",
+        "announcementMessage": "No classes will be held on 25th Dec",
+        "date": "15-Sep-2018 at 05:21"
+    },
+
+    {
+        "id": "announcement5",
+        "announcementFrom": "Willson Kumar",
+        "image": "/quantum screen assets/icons/ok icon.png",
+        "announcementMessage": "Additional course materials available on request",
+        "extraDetails": "Course: Mathematics 101",
+        "date": "15-Sep-2018 at 05:21"
+    },
+
+    {
+        "id": "announcement6",
+        "announcementFrom": "Samson White",
+        "image": "/quantum screen assets/icons/not ok icon.png",
+        "announcementMessage": "Guest lecture on Geometry on 20th September",
+        "files": "2 files are attached",
+        "date": "15-Sep-2018 at 05:21"
+    },
+
+    {
+        "id": "announcement7",
+        "announcementFrom": "Wilson Kumar",
+        "image": "/quantum screen assets/icons/ok icon.png",
+        "announcementMessage": "No class will be held on 21st Nov",
+        "files": "2 files are attached",
+        "date": "15-Sep-2018 at 07:21"
+    },
+
+    {
+        "id": "announcement8",
+        "announcementFrom": "Willson Kumar",
+        "image": "/quantum screen assets/icons/ok icon.png",
+        "announcementMessage": "Additional course materials available on request",
+        "extraDetails": "Course: Mathematics 101",
+        "date": "15-Sep-2018 at 05:21"
+    }
+]

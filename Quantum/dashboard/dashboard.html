@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Quantum</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/dashboard/css/dashboard.css" />
+    <link rel="stylesheet" href="/dashboard/css/dashboard main grid.css" />
+    <link rel="stylesheet" href="/dashboard/css/course basic.css" />
+  </head>
+
+  <!-- Body start -->
+  <body>
+    <!-- Header Section -->
+    <header>
+      <div class="site-icon">
+        <img
+          src="/quantum screen assets/icons/logo used in header.svg"
+          alt="Quantum Icon"
+        />
+      </div>
+
+      <div class="nav">
+        <div class="burgerMenuDiv">
+          <div class="burgerMenu" for="toggle">&#9776;</div>
+          <!-- <input type="checkbox" id="toggle" /> -->
+          <div class="menu">
+            <ul>
+              <!-- DASHBOARD -->
+              <li class="dashboard">
+                <a href="…">DASHBOARD</a>
+                <hr class="bottom-border" />
+              </li>
+
+              <!-- CONTENT -->
+              <li class="content has-submenu">
+                <a href="…" aria-haspopup="true" aria-expanded="false"
+                  >CONTENT</a
+                >
+                <img
+                  class="down-icon"
+                  src="/quantum screen assets/icons/green-arrow-down.svg"
+                  alt=""
+                />
+
+                <hr class="bottom-border" />
+                <ul>
+                  <li><a href="…">COURSE CATALOG</a></li>
+                </ul>
+              </li>
+
+              <!-- USERS -->
+              <li class="users has-submenu">
+                <a href="…" aria-haspopup="true" aria-expanded="false">USERS</a>
+                <img
+                  class="down-icon"
+                  src="/quantum screen assets/icons/green-arrow-down.svg"
+                  alt=""
+                />
+                <hr class="bottom-border" />
+                <ul>
+                  <li><a href="…">USER SETTINGS</a></li>
+                </ul>
+              </li>
+
+              <!-- REPORTS -->
+              <li class="reports has-submenu">
+                <a href="…" aria-haspopup="true" aria-expanded="false"
+                  >REPORTS</a
+                >
+                <img
+                  class="down-icon"
+                  src="/quantum screen assets/icons/green-arrow-down.svg"
+                  alt=""
+                />
+                <hr class="bottom-border" />
+                <ul>
+                  <li><a href="…">REPORTS SECTION</a></li>
+                </ul>
+              </li>
+
+              <!-- ADMIN -->
+              <li class="admin has-submenu">
+                <a href="…" aria-haspopup="true" aria-expanded="false">ADMIN</a>
+                <img
+                  class="down-icon"
+                  src="/quantum screen assets/icons/green-arrow-down.svg"
+                  alt=""
+                />
+                <hr class="bottom-border" />
+                <ul>
+                  <li><a href="…">ADMIN SECTION</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="images">
+          <!-- Alert div -->
+          <div class="alert-div icons">
+            <img
+              src="/quantum screen assets/icons/alerts.svg"
+              alt="Alert Icon"
+              class="alert-image"
+            />
+            <div class="alert-preview">
+              <div class="alerts-container" id="alerts-container"></div>
+              <div class="alert-button-div">
+                <button class="alert-show-button">SHOW ALL</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Announcement div -->
+          <div class="announcements-div icons">
+            <img
+              src="/quantum screen assets/icons/announcements.svg"
+              alt="Announcements Icon"
+              class="announcements-image"
+            />
+            <!-- <p>1</p> -->
+            <div class="announcements-preview">
+              <div
+                class="announcements-container"
+                id="announcements-container"
+              ></div>
+              <div class="announcements-button-div">
+                <button class="announcements-show-button">SHOW ALL</button>
+                <p>|</p>
+                <button class="announcements-create-button">CREATE NEW</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Profile div -->
+          <div class="profile-div icons">
+            <img
+              src="/quantum screen assets/icons/profile.svg"
+              alt="Profile Icon"
+              class="profile-image"
+            />
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Header Section Ends -->
+
+    <!-- Main Section -->
+    <main>
+      <div class="container1">
+        <div class="courseTabs">
+          <div class="courseTab">
+            <img src="/quantum screen assets/icons/courses.svg" alt="" />
+            <p><span>4 </span> Courses</p>
+          </div>
+          <div class="classTab">
+            <img src="/quantum screen assets/icons/classes.svg" alt="" />
+            <p><span>4 </span> Classes</p>
+          </div>
+        </div>
+
+        <div class="gridDetails">
+          <div class="courseNos">
+            <p>Showing 4 of 4 courses</p>
+          </div>
+          <div class="sortSection">
+            <label for="district">Sort By:</label><br />
+            <select name="sortType" id="sortType">
+              <option value="courseName">Course Name</option>
+              <option value="o2">O2</option>
+              <option value="O3">O3</option>
+              <option value="O4">O4</option>
+            </select>
+            <img src="/quantum screen assets/icons/sort.svg" alt="" />
+          </div>
+        </div>
+      </div>
+
+      <div class="coursesGrid" id="coursesGrid"></div>
+    </main>
+    <!-- Main Section Ends -->
+
+    <!-- Footer Section -->
+    <footer>
+      <div class="aboutUs">
+        About&nbsp;<span style="color: #d2d2d2">|</span>&nbsp;Contact Us
+      </div>
+
+      <div class="copyrightDateils">
+        <img
+          src="/quantum screen assets/icons/logo used in footer.svg"
+          alt="Quantum Icon"
+        />
+        <p style="margin: 0%">&emsp;</p>
+        <div class="vLine">
+          &emsp;&emsp;Copyright &nbsp; <span>&copy;</span> &nbsp; 2021-2021
+          &emsp; <strong>Zeus System Pvt. Ltd.</strong> &emsp; All rights
+          reserved.
+        </div>
+      </div>
+    </footer>
+    <!-- Footer Section Ends -->
+
+    <!-- Scripts -->
+    <script src="/dashboard/scripts/load data.js"></script>
+    <script src="/dashboard/scripts/event listner.js"></script>
+  </body>
+</html>
+
+<!-- 
+  1. onLoad function working
+  2. Alternate method to load
+  3. Handle event occuring in same time
+
+
+  1. https://www.w3schools.com/tags/ev_onload.asp
+  2. https://stackoverflow.com/questions/51300809/load-html-first-before-javascript
+    DOMContentLoaded event is fired when the html document is parsed and 
+    fired without waiting for stylesheets, images, subframes etc
+    document.addEventListener("DOMContentLoaded", function(event) { 
+      // your code here
+    });
+
+    So its better to use rather than using onLoad
+    as onLoad is called when everything is loaded (html, css, images, scripts etc)
+
+  3. lock resource: 
+     -->
