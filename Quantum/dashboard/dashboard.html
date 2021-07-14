@@ -26,19 +26,18 @@
 
       <div class="nav">
         <div class="burgerMenuDiv">
-          <div class="burgerMenu" for="toggle">&#9776;</div>
-          <!-- <input type="checkbox" id="toggle" /> -->
+          <button class="burgerMenu" tabindex="2">&#9776;</button>
           <div class="menu">
             <ul>
               <!-- DASHBOARD -->
               <li class="dashboard">
-                <a href="…">DASHBOARD</a>
+                <a tabindex="1">DASHBOARD</a>
                 <hr class="bottom-border" />
               </li>
 
               <!-- CONTENT -->
               <li class="content has-submenu">
-                <a href="…" aria-haspopup="true" aria-expanded="false"
+                <a aria-haspopup="true" aria-expanded="false" tabindex="1"
                   >CONTENT</a
                 >
                 <img
@@ -49,13 +48,15 @@
 
                 <hr class="bottom-border" />
                 <ul>
-                  <li><a href="…">COURSE CATALOG</a></li>
+                  <li><a href="">COURSE CATALOG</a></li>
                 </ul>
               </li>
 
               <!-- USERS -->
               <li class="users has-submenu">
-                <a href="…" aria-haspopup="true" aria-expanded="false">USERS</a>
+                <a aria-haspopup="true" aria-expanded="false" tabindex="1"
+                  >USERS</a
+                >
                 <img
                   class="down-icon"
                   src="/quantum screen assets/icons/green-arrow-down.svg"
@@ -69,7 +70,7 @@
 
               <!-- REPORTS -->
               <li class="reports has-submenu">
-                <a href="…" aria-haspopup="true" aria-expanded="false"
+                <a aria-haspopup="true" aria-expanded="false" tabindex="1"
                   >REPORTS</a
                 >
                 <img
@@ -85,7 +86,9 @@
 
               <!-- ADMIN -->
               <li class="admin has-submenu">
-                <a href="…" aria-haspopup="true" aria-expanded="false">ADMIN</a>
+                <a aria-haspopup="true" aria-expanded="false" tabindex="1"
+                  >ADMIN</a
+                >
                 <img
                   class="down-icon"
                   src="/quantum screen assets/icons/green-arrow-down.svg"
@@ -102,7 +105,7 @@
 
         <div class="images">
           <!-- Alert div -->
-          <div class="alert-div icons">
+          <div class="alert-div icons" tabindex="1">
             <img
               src="/quantum screen assets/icons/alerts.svg"
               alt="Alert Icon"
@@ -117,7 +120,7 @@
           </div>
 
           <!-- Announcement div -->
-          <div class="announcements-div icons">
+          <div class="announcements-div icons" tabindex="1">
             <img
               src="/quantum screen assets/icons/announcements.svg"
               alt="Announcements Icon"
@@ -138,7 +141,7 @@
           </div>
 
           <!-- Profile div -->
-          <div class="profile-div icons">
+          <div class="profile-div icons" tabindex="1">
             <img
               src="/quantum screen assets/icons/profile.svg"
               alt="Profile Icon"
@@ -154,11 +157,11 @@
     <main>
       <div class="container1">
         <div class="courseTabs">
-          <div class="courseTab">
+          <div class="courseTab" tabindex="0">
             <img src="/quantum screen assets/icons/courses.svg" alt="" />
             <p><span>4 </span> Courses</p>
           </div>
-          <div class="classTab">
+          <div class="classTab" tabindex="0">
             <img src="/quantum screen assets/icons/classes.svg" alt="" />
             <p><span>4 </span> Classes</p>
           </div>
@@ -188,7 +191,10 @@
     <!-- Footer Section -->
     <footer>
       <div class="aboutUs">
-        About&nbsp;<span style="color: #d2d2d2">|</span>&nbsp;Contact Us
+        <span tabindex="0">About</span>&nbsp;<span style="color: #d2d2d2"
+          >|</span
+        >
+        &nbsp;<span tabindex="0">Contact Us</span>
       </div>
 
       <div class="copyrightDateils">
@@ -205,6 +211,16 @@
       </div>
     </footer>
     <!-- Footer Section Ends -->
+
+    <!-- Modal Section Starts -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <p>Modal Window</p>
+        <span class="close">&times;</span>
+      </div>
+    </div>
+    <!-- Modal Section Starts -->
 
     <!-- Scripts -->
     <script src="/dashboard/scripts/load data.js"></script>

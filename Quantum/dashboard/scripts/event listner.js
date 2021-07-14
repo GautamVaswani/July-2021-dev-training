@@ -1,5 +1,5 @@
 let dropDown = document.querySelectorAll(".has-submenu");
-console.log(dropDown)
+// console.log(dropDown)
 dropDown.forEach(li => {
     li.addEventListener("mouseenter", function(event){
         event.target.children[1].src = "/quantum screen assets/icons/green-arrow-up.svg"; 
