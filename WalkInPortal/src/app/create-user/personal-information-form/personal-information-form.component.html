@@ -1,0 +1,131 @@
+<div class="personalInformationFormContainer">
+  <div class="uploadImageDiv">
+    <img
+      src="../../../assets/Walk In Portal - Icons - Listing to Success flow/profile_upload.png"
+      alt="Upload display picture"
+      class="uploadImage"
+    />
+    <p class="uploadPictureText">Upload Display Picture</p>
+    <p class="uploadPictureInstructionText">Max. image size 5 MB</p>
+  </div>
+  <form class="personalInformationForm" ng-submit="submit()" ngNativeValidate>
+    <div class="formInputDiv">
+      <!-- First name input -->
+      <div class="textInputDiv firstNameInputDiv">
+        <label for="firstNameText">First Name*</label>
+        <input
+          type="text"
+          name="firstName"
+          id="firstNameText"
+          required
+          [(ngModel)]="firstName"
+        />
+      </div>
+
+      <!-- Last name input -->
+      <div class="textInputDiv lastNameInputDiv">
+        <label for="lastNameText">Last Name*</label>
+        <input
+          type="text"
+          name="lastName"
+          id="lastNameText"
+          required
+          [(ngModel)]="lastName"
+        />
+      </div>
+
+      <!-- Email input -->
+      <div class="textInputDiv emailInputDiv">
+        <label for="emailText">Email*</label>
+        <input
+          type="text"
+          name="email"
+          id="emailText"
+          required
+          [(ngModel)]="email"
+        />
+      </div>
+
+      <!-- Phone number input -->
+      <div class="phoneInputDiv textInputDiv">
+        <label for="phoneNumber">Phone Number*</label>
+        <div>
+          <div>+</div>
+          <input
+            class="phoneInputFeild phoneCode"
+            type="tel"
+            name="phoneCode"
+            minlength="1"
+            maxlength="2"
+            size="2"
+            [(ngModel)]="phoneCode"
+            required
+          />
+          <input
+            class="phoneInputFeild phoneNumber"
+            id="phoneNumber"
+            type="tel"
+            name="phoneNumber"
+            minlength="10"
+            maxlength="10"
+            [(ngModel)]="phoneNumber"
+            required
+          />
+        </div>
+      </div>
+
+      <!-- Upload resume div -->
+      <div class="resumeUploadDiv">
+        <img
+          src="../../../assets/Walk In Portal - Icons - Listing to Success flow/upload_green.svg"
+          alt="Upload icon"
+        />
+        <p>UPLOAD RESUME</p>
+      </div>
+
+      <!-- Portfolio url input -->
+      <div class="textInputDiv portfolioInputDiv">
+        <label for="portfolioText">Enter portfolio URL (If any)</label>
+        <input
+          type="text"
+          name="portfolioURL"
+          id="portfolioText"
+          [(ngModel)]="portfolioURL"
+        />
+      </div>
+
+      <!-- Referral input -->
+      <div class="textInputDiv referralInputDiv">
+        <label for="referralText"
+          >If You Are Registering Via A Referral, Please Mention Full Name Of
+          The Employee Who Referred You</label
+        >
+        <input
+          type="text"
+          name="referralName"
+          id="referralText"
+          [(ngModel)]="referralName"
+        />
+      </div>
+
+      <!-- Update via email checkbox -->
+      <div
+        class="emailUpdateCheckBoxDiv"
+        (click)="mailUpdateChangeHandler('emailUpdateCheckBoxDiv')"
+      >
+        <img
+          src="../../../assets/quantum screen assets/icons/checkbox-checked.svg"
+          alt="Checked checkbox"
+        />
+        <p>Send me job related updates via mail</p>
+      </div>
+    </div>
+
+    <!-- Personal information form page button div -->
+    <div class="formButtonDiv">
+      <button type="submit" routerLink="../personal information form">
+        Next
+      </button>
+    </div>
+  </form>
+</div>

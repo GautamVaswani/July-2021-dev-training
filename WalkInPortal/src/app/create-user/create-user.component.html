@@ -1,0 +1,39 @@
+<div class="createUser">
+  <app-header></app-header>
+  <!-- ------------------------------ Create User Header Start ----------------------------------- -->
+  <div class="createUserHeader">
+    <div class="backButtonDiv">
+      <img
+        src="../../assets/Walk In Portal - Icons - Listing to Success flow/arrow_left_green.svg"
+        alt=""
+        class="backButton"
+        (click)="loginRedirect()"
+      />
+    </div>
+    <div class="centerText">Create An Account</div>
+    <div class="userCancelCreateButtonDiv">
+      <button class="cancelUserButton" (click)="clickHandler()">CANCEL</button>
+      <button
+        class="createUserButton"
+        [ngStyle]="{ opacity: getOpacity() }"
+        [disabled]="
+          isPersonalInformationFilled && isQualificationsFilled ? false : true
+        "
+      >
+        CREATE
+      </button>
+    </div>
+  </div>
+
+  <div class="formNavContainer">
+    <hr />
+    <div class="navItems">
+      <div>Personal Information</div>
+      <div>Qualifications</div>
+      <div>Review and Proceed</div>
+    </div>
+  </div>
+  <!-- ------------------------------ Create User Header End ------------------------------------- -->
+
+  <router-outlet></router-outlet>
+</div>

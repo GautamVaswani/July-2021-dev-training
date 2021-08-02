@@ -1,0 +1,133 @@
+.personalInformationFormContainer {
+  position: relative;
+  width: inherit;
+  height: 100%;
+  min-height: inherit;
+  margin: 0 24px;
+  background-color: white;
+}
+
+/* -------------------------------------------- Form Start ---------------------------------------------- */
+
+/* Upload image start */
+.uploadImageDiv {
+  width: 150px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  cursor: pointer;
+}
+
+.uploadImage {
+  width: 7rem;
+  height: 7rem;
+}
+
+.uploadPictureText {
+  color: #1f7a54;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 16px 0 8px;
+}
+
+.uploadPictureInstructionText {
+  color: #757575;
+  font-size: 10px;
+  margin: 0;
+}
+
+/* Form */
+.personalInformationForm {
+  padding: 24px;
+}
+
+/* Text input feilds div */
+.textInputDiv {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 480px;
+  margin-bottom: 40px;
+}
+
+.textInputDiv > label {
+  font-size: 12px;
+  color: #666666;
+  margin-bottom: 12px;
+}
+
+.textInputDiv > input {
+  font-size: 16px;
+  border: none;
+  border-bottom: 1px #666666 solid;
+  text-align: left;
+}
+
+/* Phone input feild div */
+.phoneInputDiv > div {
+  display: flex;
+}
+
+.phoneInputFeild {
+  font-size: 16px;
+  border: none;
+  border-bottom: 1px #666666 solid;
+  margin-left: 5px;
+}
+
+.phoneCode {
+  width: 1.5rem;
+}
+
+.phoneNumber {
+  width: 7.5rem;
+}
+
+/* Upload resume div */
+.resumeUploadDiv {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 40px;
+}
+
+.resumeUploadDiv > p {
+  color: #1f7a54;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* Email update checkbox */
+.emailUpdateCheckBoxDiv {
+  display: flex;
+  cursor: pointer;
+  margin-bottom: 27px;
+}
+
+/* Button div */
+.formButtonDiv {
+  display: flex;
+  position: absolute;
+  left: -30px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: #eeeeee;
+  padding: 27px;
+}
+
+.formButtonDiv > button {
+  width: 90px;
+  height: 24px;
+  font-size: 14px;
+  background-color: #3fd28b;
+  box-shadow: 0px 3px 5px #0000003d;
+  border-radius: 2px;
+  border: none;
+}

@@ -288,7 +288,7 @@ let alertLoad = function(event){
                   ${alertRow1}
                   ${alertRow2}
                   ${alertRow3}
-                </div>
+            </div>
             `;
 
             document.getElementById("alerts-container").innerHTML += alertMarkup;
