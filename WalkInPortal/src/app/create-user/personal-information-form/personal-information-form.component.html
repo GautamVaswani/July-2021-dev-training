@@ -1,7 +1,7 @@
 <div class="personalInformationFormContainer">
   <div class="uploadImageDiv">
     <img
-      src="../../../assets/Walk In Portal - Icons - Listing to Success flow/profile_upload.png"
+      src="{{ walkinIconFolderBaseURL }}profile_upload.png"
       alt="Upload display picture"
       class="uploadImage"
     />
@@ -10,7 +10,7 @@
   </div>
   <form class="personalInformationForm" ng-submit="submit()" ngNativeValidate>
     <div class="formInputDiv">
-      <!-- First name input -->
+      <!-- First name input div -->
       <div class="textInputDiv firstNameInputDiv">
         <label for="firstNameText">First Name*</label>
         <input
@@ -22,7 +22,7 @@
         />
       </div>
 
-      <!-- Last name input -->
+      <!-- Last name input div -->
       <div class="textInputDiv lastNameInputDiv">
         <label for="lastNameText">Last Name*</label>
         <input
@@ -34,7 +34,7 @@
         />
       </div>
 
-      <!-- Email input -->
+      <!-- Email input div-->
       <div class="textInputDiv emailInputDiv">
         <label for="emailText">Email*</label>
         <input
@@ -46,7 +46,7 @@
         />
       </div>
 
-      <!-- Phone number input -->
+      <!-- Phone number input div -->
       <div class="phoneInputDiv textInputDiv">
         <label for="phoneNumber">Phone Number*</label>
         <div>
@@ -77,13 +77,13 @@
       <!-- Upload resume div -->
       <div class="resumeUploadDiv">
         <img
-          src="../../../assets/Walk In Portal - Icons - Listing to Success flow/upload_green.svg"
+          src="{{ walkinIconFolderBaseURL }}upload_green.svg"
           alt="Upload icon"
         />
         <p>UPLOAD RESUME</p>
       </div>
 
-      <!-- Portfolio url input -->
+      <!-- Portfolio url input div -->
       <div class="textInputDiv portfolioInputDiv">
         <label for="portfolioText">Enter portfolio URL (If any)</label>
         <input
@@ -94,7 +94,49 @@
         />
       </div>
 
-      <!-- Referral input -->
+      <!-- Preferred job roles input div -->
+      <div class="textInputDiv preferredJobRoleDiv">
+        <label>Preferred Job Roles</label>
+
+        <!-- ngFor when fetching roles from database -->
+        <!-- Job1 -->
+        <div
+          class="checkBoxDiv job1UpdateCheckBoxDiv"
+          (click)="preferredJobRoleChangeHandler('job1UpdateCheckBoxDiv')"
+        >
+          <img
+            src="{{ quantumIconFolderBaseURL }}checkbox-unchecked.svg"
+            alt="Unchecked checkbox"
+          />
+          <p>Instructional Designer</p>
+        </div>
+
+        <!-- Job2 -->
+        <div
+          class="checkBoxDiv job2UpdateCheckBoxDiv"
+          (click)="preferredJobRoleChangeHandler('job2UpdateCheckBoxDiv')"
+        >
+          <img
+            src="{{ quantumIconFolderBaseURL }}checkbox-unchecked.svg"
+            alt="Unchecked checkbox"
+          />
+          <p>Software Engineer</p>
+        </div>
+
+        <!-- Job3 -->
+        <div
+          class="checkBoxDiv job3UpdateCheckBoxDiv"
+          (click)="preferredJobRoleChangeHandler('job3UpdateCheckBoxDiv')"
+        >
+          <img
+            src="{{ quantumIconFolderBaseURL }}checkbox-unchecked.svg"
+            alt="Unchecked checkbox"
+          />
+          <p>Software Quality Engineer</p>
+        </div>
+      </div>
+
+      <!-- Referral input div -->
       <div class="textInputDiv referralInputDiv">
         <label for="referralText"
           >If You Are Registering Via A Referral, Please Mention Full Name Of
@@ -108,24 +150,22 @@
         />
       </div>
 
-      <!-- Update via email checkbox -->
+      <!-- Update via email checkbox div -->
       <div
-        class="emailUpdateCheckBoxDiv"
+        class="checkBoxDiv emailUpdateCheckBoxDiv"
         (click)="mailUpdateChangeHandler('emailUpdateCheckBoxDiv')"
       >
         <img
-          src="../../../assets/quantum screen assets/icons/checkbox-checked.svg"
+          src="{{ quantumIconFolderBaseURL }}checkbox-checked.svg"
           alt="Checked checkbox"
         />
         <p>Send me job related updates via mail</p>
       </div>
     </div>
 
-    <!-- Personal information form page button div -->
+    <!-- personalInformationForm page button div -->
     <div class="formButtonDiv">
-      <button type="submit" routerLink="../personal information form">
-        Next
-      </button>
+      <button type="submit" routerLink="../qualificationForm">Next</button>
     </div>
   </form>
 </div>

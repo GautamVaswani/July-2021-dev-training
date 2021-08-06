@@ -6,14 +6,14 @@ import { PersonalInformationFormComponent } from './personal-information-form/pe
 import { QualificationFormComponent } from './qualification-form/qualification-form.component';
 
 const routes: Routes = [
-  { path: "create user",
+  { path: "createUser",
     component: CreateUserComponent,
     children: [
-        { path: "", pathMatch: "full" ,redirectTo: "personal information form"},
-        { path: "personal information form", component: PersonalInformationFormComponent},
-        { path: "qualification form", component: QualificationFormComponent},
-        { path: "review form", component: FormReviewComponent},
-        { path: "**", redirectTo: "personal information form"}
+        { path: "personalInformationForm", component: PersonalInformationFormComponent},
+        { path: "qualificationForm", component: QualificationFormComponent},
+        { path: "reviewForm", component: FormReviewComponent},
+        { path: "", pathMatch: "full" ,redirectTo: "personalInformationForm"},
+        { path: "**", redirectTo: "qualificationForm"}
     ]
   }
 ];

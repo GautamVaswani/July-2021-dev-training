@@ -1,0 +1,329 @@
+.hidden {
+  display: none;
+}
+
+.disabledButton {
+  opacity: 0.5;
+}
+
+/* Walkin continer div */
+.walkinDetailsContainer {
+  min-height: 85%;
+  padding: 35px 24px;
+  background-color: #eeeeee;
+}
+
+/* Walkin div */
+.walkin {
+  width: inherit;
+  height: fit-content;
+  padding: 16px 16px 0;
+  background-color: white;
+  box-shadow: 0px 4px 6px #0000003d;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Walkin title div */
+.walkinTitleDiv {
+  justify-content: space-between;
+  display: flex;
+}
+
+/* Walkin title */
+.walkinTitleDiv > p {
+  flex-shrink: 2;
+}
+
+/* Walkin apply button */
+.walkinTitleDiv > button {
+  flex-shrink: 1;
+  width: fit-content;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #3fd28b;
+  padding: 5px 16px;
+  border: none;
+  border-radius: 2px;
+  box-shadow: 0px 3px 5px #0000003d;
+}
+
+/* Walkin expire tag */
+.walkinExpireInDiv {
+  color: #d10107;
+  font-size: 12px;
+  width: fit-content;
+  padding: 2px 8px;
+  background-color: #ffe4e6;
+  position: absolute;
+  top: -10px;
+  right: 24px;
+}
+
+/* Walkin title */
+.walkinTitleDiv {
+  color: #1f7a54;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+/* Date, time & location container */
+.dateTimeLocationContainer {
+  margin-bottom: 16px;
+}
+
+/* Date-Time and location div */
+.walkinDivTitle > p {
+  color: #666666;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+/* Date time location container */
+/* Row1 */
+.dateTimeLocationDiv {
+  display: flex;
+  align-items: center;
+}
+
+/* Row2 */
+.dateDiv > p {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.verticalPartition {
+  height: 14px;
+  margin: 0 16px;
+  border-left: 1px solid black;
+  opacity: 0.12;
+}
+
+.locationDiv {
+  display: flex;
+  align-items: center;
+}
+
+.locationDiv > img {
+  width: 14px;
+  margin-right: 8px;
+}
+
+.locationDiv > p {
+  font-size: 12px;
+  color: #666666;
+}
+
+/* Horzontal Partition */
+.horizontalPartition {
+  border: none;
+  border-bottom: black 1px solid;
+  opacity: 0.12;
+  margin: 0;
+  margin-bottom: 16px;
+  /* margin: 16px 0; */
+}
+
+/* Walkin roles div */
+.walkinRolesDiv {
+  margin-bottom: 16px;
+}
+
+.walkinRoleListContainer {
+  display: flex;
+}
+
+.walkinRole {
+  display: flex;
+  margin-right: 20px;
+}
+
+.walkinRole > img {
+  margin-right: 12px;
+}
+
+.walkinRole > div {
+  color: #1f7a54;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Special opportunity div */
+.specialOpportunity {
+  background-color: #eedd6b;
+  border-radius: 9px;
+  padding: 3px 8px;
+  align-self: flex-start;
+  margin-bottom: 16px;
+}
+
+.specialOpportunity > p {
+  font-size: 10px;
+}
+
+/* Pre-requisite header */
+.expandableDivHeader {
+  display: flex;
+  /* height: 56px; */
+  padding: 10px 0;
+  background-color: #dbefff;
+  cursor: pointer;
+}
+
+.expandableDivHeader > p:first-child {
+  margin: 0;
+  align-self: center;
+}
+
+.expandableDivHeader > p {
+  /* margin: 0; */
+  font-size: 16px;
+  align-self: center;
+  padding-left: 16px;
+}
+
+.divider {
+  margin-left: auto;
+  margin-left: auto;
+  border-left: 1.5px solid teal;
+  height: inherit;
+  left: 50%;
+}
+
+.expandableDivHeader > img {
+  align-self: center;
+  padding: 0 5px;
+  /* border-left: solid black 2px; */
+}
+
+/*------------------------------------- Time slot and preferences div --------------------------*/
+.timeSlotAndPreferenceDiv {
+  padding: 16px;
+  background-color: white;
+  margin: 24px 0;
+}
+
+.timeSlotAndPreferenceDiv > div {
+  margin-bottom: 16px;
+}
+
+.titleDiv > p {
+  font-size: 16px;
+}
+
+.timeSlotTitleDiv,
+.checkBoxLabelDiv > label {
+  color: #666666;
+  font-size: 12px;
+}
+
+.timeSlotTitleDiv,
+.checkBoxLabelDiv {
+  margin-bottom: 18px;
+}
+
+.timeSlotRadioGroup > div {
+  margin-bottom: 20px;
+}
+
+.timeSlotRadioGroup:last-child {
+  margin-bottom: 0;
+}
+
+/* Upload resume div */
+.timeSlotAndPreferenceDiv > .resumeUploadDiv {
+  display: flex;
+  position: relative;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.resumeUploadDiv > p {
+  color: #1f7a54;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.resumeUploadDiv > img {
+  cursor: pointer;
+}
+
+.circularButtonDiv {
+  position: absolute;
+  right: 0;
+  background-color: #3fd28b;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+
+.circularButtonDiv > img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+/* Radio start*/
+.radioDiv {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+}
+
+.radioDiv > label {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.radioDiv > input[type="radio"] {
+  display: none;
+}
+
+.radioDiv > input[type="radio"] + *::before {
+  content: "";
+  display: inline-block;
+  vertical-align: bottom;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.3rem;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 0.15rem;
+  border-color: #1f7a54;
+}
+
+.radioDiv > input[type="radio"]:checked + *::before {
+  background: radial-gradient(teal 0%, teal 40%, transparent 50%, transparent);
+  border-color: #1f7a54;
+}
+
+/* Checkbox */
+.checkBoxDiv {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.checkBoxDiv:last-child {
+  margin-bottom: 0;
+}
+
+.checkBoxDiv > p {
+  margin: 0;
+}
+
+/* ------------------------------------------Screen size: 375px-------------------------------------------- */
+@media only screen and (max-width: 375px) {
+  .walkinRoleListContainer {
+    display: block;
+  }
+}

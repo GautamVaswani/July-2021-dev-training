@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormReviewComponent implements OnInit {
 
+  walkinIconFolderBaseURL: string = "../../../assets/Walk In Portal - Icons - Listing to Success flow/";
+  quantumIconFolderBaseURL: string = "../../../assets/quantum screen assets/icons/";
+
   constructor() { }
 
   ngOnInit(): void {

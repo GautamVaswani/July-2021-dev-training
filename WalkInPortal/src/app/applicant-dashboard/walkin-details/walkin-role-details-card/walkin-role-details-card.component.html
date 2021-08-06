@@ -1,0 +1,41 @@
+<div
+  class="jobRoleTitleDiv"
+  id="jobRoleID1"
+  (click)="expandHeaderClickHandler('jobRoleID1')"
+>
+  <p>Job 1</p>
+  <div class="divider"></div>
+  <img src="{{ walkinIconBaseURL }}expand_more_green.svg" alt="" />
+</div>
+<div class="jobRoleDetailsDiv" [class.hidden]="!isRoleDetailsExpanded">
+  <div class="detailDiv">
+    <div class="detailTitle">Gross Compensation Package:</div>
+    <div class="detailDetails">
+      <p>Rs. 5,00,000 lpa</p>
+    </div>
+  </div>
+
+  <!-- Partition line -->
+  <hr class="horizontalPartition" />
+
+  <div class="detailDiv">
+    <div class="detailTitle">Role Desscription:</div>
+    <div class="detailDetails">
+      <!-- ngFor for each para -->
+      <p class="points">Role Desscription 1</p>
+      <p class="points">Role Desscription 2</p>
+      <p class="points">Role Desscription 3</p>
+    </div>
+  </div>
+
+  <!-- Partition line -->
+  <hr class="horizontalPartition" />
+
+  <div class="detailDiv">
+    <div class="detailTitle">Requirements:</div>
+    <div class="detailDetails">
+      <!-- ngFor for each para -->
+      <p class="points">Requirements</p>
+    </div>
+  </div>
+</div>

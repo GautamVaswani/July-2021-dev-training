@@ -6,10 +6,10 @@
 /* -----------------------------------Create User Header Start----------------------------------- */
 .createUserHeader {
   display: flex;
-  position: relative;
+  /* position: relative; */
   background-color: #3c4e62;
   height: 48px;
-  padding: 0 24px;
+  /* padding: 0 24px; */
   justify-content: center;
   align-items: center;
   flex-shrink: 1;

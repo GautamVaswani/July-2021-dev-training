@@ -91,13 +91,13 @@ export class LoginBodyComponent implements OnInit {
 
   loginMethod(){
     if(this.email.length != 0 && this.password.length !=0){
-      this.router.navigateByUrl("applicant dashboard");
+      this.router.navigateByUrl("applicantDashboard");
     }
   }
 
   createAccountMethod(){
     // console.log("Create account clicked");
-    this.router.navigateByUrl("create user");
+    this.router.navigateByUrl("createUser");
   }
 
   aboutUsMethod(){

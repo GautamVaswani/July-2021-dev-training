@@ -1,0 +1,156 @@
+.hidden {
+  display: none;
+}
+
+/* Walkin continer div */
+.allWalkinContainer {
+  min-height: 85%;
+  padding: 35px 24px;
+  background-color: #eeeeee;
+}
+
+/* Walkin div */
+.walkin {
+  width: inherit;
+  height: fit-content;
+  padding: 16px;
+  margin-bottom: 24px;
+  background-color: white;
+  box-shadow: 0px 4px 6px #0000003d;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* .walkin > * {
+  align-self: flex-start;
+} */
+
+/* Walkin expire tag */
+.walkinExpireInDiv {
+  color: #d10107;
+  font-size: 12px;
+  width: fit-content;
+  padding: 2px 8px;
+  background-color: #ffe4e6;
+  position: absolute;
+  top: -10px;
+  right: 24px;
+}
+
+/* Walkin title */
+.walkinTitleDiv {
+  color: #1f7a54;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+/* Date, time & location container */
+.dateTimeLocationContainer {
+  margin-bottom: 16px;
+}
+
+/* Date-Time and location div */
+.walkinDivTitle > p {
+  color: #666666;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+/* Date time location container */
+/* Row1 */
+.dateTimeLocationDiv {
+  display: flex;
+  align-items: center;
+}
+
+/* Row2 */
+.dateDiv > p {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.verticalPartition {
+  height: 14px;
+  margin: 0 16px;
+  border-left: 1px solid black;
+  opacity: 0.12;
+}
+
+.locationDiv {
+  display: flex;
+  align-items: center;
+}
+
+.locationDiv > img {
+  width: 14px;
+  margin-right: 8px;
+}
+
+.locationDiv > p {
+  font-size: 12px;
+  color: #666666;
+}
+
+/* Horzontal Partition */
+.horizontalPartition {
+  border: none;
+  border-bottom: black 1px solid;
+  opacity: 0.12;
+  margin: 0;
+  margin-bottom: 16px;
+  /* margin: 16px 0; */
+}
+
+/* Walkin roles div */
+.walkinRolesDiv {
+  margin-bottom: 16px;
+}
+
+.walkinRoleListContainer {
+  display: flex;
+}
+
+.walkinRole {
+  display: flex;
+  margin-right: 20px;
+}
+
+.walkinRole > img {
+  margin-right: 12px;
+}
+
+/* Special opportunity div */
+.walkin > .specialOpportunity {
+  background-color: #eedd6b;
+  border-radius: 9px;
+  padding: 3px 8px;
+  align-self: flex-start;
+  margin-bottom: 16px;
+}
+
+.specialOpportunity > p {
+  font-size: 10px;
+}
+
+/* View more details button div*/
+.walkin > .viewMoreButtonDiv {
+  align-self: center;
+}
+
+.viewMoreButtonDiv > button {
+  font-size: 14px;
+  background-color: #3fd28b;
+  padding: 5px 16px;
+  border: none;
+  border-radius: 2px;
+  box-shadow: 0px 3px 5px #0000003d;
+}
+
+/* ------------------------------------------Screen size: 375px-------------------------------------------- */
+@media only screen and (max-width: 375px) {
+  .walkinRoleListContainer {
+    display: block;
+  }
+}

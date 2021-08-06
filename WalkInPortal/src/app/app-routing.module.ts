@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ApplicantDashboardComponent } from './applicant-dashboard/applicant-dashboard.component';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: "", pathMatch: "full", redirectTo: "login"},
   { path: "login", component: LoginComponent},
-  { path: "create user", pathMatch: "full", redirectTo: "create user"},
-  { path: "applicant dashboard", component: ApplicantDashboardComponent},
+  { path: "createUser", redirectTo: "createUser"},
+  { path: "applicantDashboard", redirectTo: "applicantDashboard"},
+  { path: "", pathMatch: "full", redirectTo: "login"},
   { path: "**", pathMatch: "full", redirectTo: "login" }
 ];
 

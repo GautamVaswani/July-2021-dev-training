@@ -1,0 +1,165 @@
+<div class="walkinDetailsContainer">
+  <!-- Walkin details div -->
+  <div class="walkin" id="walkin1">
+    <!-- Expire tag -->
+    <!-- <div class="walkinExpireInDiv" [class.hidden]="false">
+        <p>Expire in 5 days</p>
+      </div> -->
+
+    <!-- Walkin title -->
+    <div class="walkinTitleDiv">
+      <p>Walk In For Designer Job Role</p>
+      <button
+        [class.disabledButton]="preferredJobRoles.length == 0"
+        [disabled]="preferredJobRoles.length == 0"
+      >
+        APPLY
+      </button>
+    </div>
+
+    <!-- Date-Time and location div -->
+    <div class="dateTimeLocationContainer">
+      <!-- Date time title div -->
+      <div class="walkinDivTitle">
+        <p>Date & Time:</p>
+      </div>
+      <!-- Date time value and location div -->
+      <div class="dateTimeLocationDiv">
+        <div class="dateDiv">
+          <p>{{ startDate }} to {{ endDate }}</p>
+        </div>
+        <div class="verticalPartition"></div>
+        <div class="locationDiv">
+          <img src="{{ walkinIconBaseURL }}location_on_black_24dp.svg" alt="" />
+          <p>Mumbai</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Partition line -->
+    <hr class="horizontalPartition" />
+
+    <!-- Walkin roles div -->
+    <div class="walkinRolesDiv">
+      <!-- Walkin roles div title -->
+      <div class="walkinDivTitle">
+        <p>Job Roles:</p>
+      </div>
+      <!-- Roles list div -->
+      <div class="walkinRoleListContainer">
+        <!-- Apply ngFor when fetching list from database -->
+        <div class="walkinRole">
+          <img src="{{ walkinIconBaseURL }}Instructional Designer.svg" alt="" />
+          <div>Role name</div>
+        </div>
+        <div class="walkinRole">
+          <img src="{{ walkinIconBaseURL }}Instructional Designer.svg" alt="" />
+          <div>Role name</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Special opportunity div -->
+    <div class="specialOpportunity" [class.hidden]="false">
+      <p>Internship Name</p>
+    </div>
+  </div>
+  <!-- Pre-requistes & application process -->
+  <div class="expandableDivHeader pre-requistesAndApplicationHeaderDiv">
+    <!-- (click)="qualificationHeaderClickHandler('educationalHeaderDiv')" -->
+    <p>Pre-requistes & Application Process</p>
+    <div class="divider"></div>
+    <img src="{{ walkinIconBaseURL }}expand_more_green.svg" alt="" />
+  </div>
+
+  <!-- Pre-requistes & application details div -->
+  <!-- Add div here -->
+
+  <!-- Time slot div -->
+  <div class="timeSlotAndPreferenceDiv">
+    <div class="titleDiv">
+      <p>Time Slots & Preferences</p>
+    </div>
+    <div class="timeSlotsDiv">
+      <div class="timeSlotTitleDiv">
+        <p>Select a Time Slot:</p>
+      </div>
+
+      <!-- ngFor for time slots -->
+      <div class="timeSlotRadioGroup">
+        <div class="radioDiv">
+          <input
+            type="radio"
+            id="timeSlot1"
+            name="timeSlot"
+            value="Time Slot 1"
+            checked
+            (change)="radioChangehandler($event, 'timeSlotRadioGroup')"
+          />
+          <label for="timeSlot1">Time Slot 1</label>
+        </div>
+        <div class="radioDiv">
+          <input
+            type="radio"
+            id="timeSlot2"
+            name="timeSlot"
+            value="Time Slot 2"
+            (change)="radioChangehandler($event, 'timeSlotRadioGroup')"
+          />
+          <label for="timeSlot2">Time Slot 2</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Partition line -->
+    <hr class="horizontalPartition" />
+
+    <!-- Job roles check input div -->
+    <div class="JobRoleDiv">
+      <div class="checkBoxLabelDiv">
+        <label>Select Your Preference:</label>
+      </div>
+
+      <!-- ngFor when fetching roles from database -->
+      <!-- Job1 -->
+      <div
+        class="checkBoxDiv job1CheckBoxDiv"
+        (click)="preferredJobRoleChangeHandler('job1CheckBoxDiv')"
+      >
+        <img
+          src="{{ quantumIconBaseURL }}checkbox-unchecked.svg"
+          alt="Unchecked checkbox"
+        />
+        <p>Software Engineer</p>
+      </div>
+
+      <!-- Job2 -->
+      <div
+        class="checkBoxDiv job2CheckBoxDiv"
+        (click)="preferredJobRoleChangeHandler('job2CheckBoxDiv')"
+      >
+        <img
+          src="{{ quantumIconBaseURL }}checkbox-unchecked.svg"
+          alt="Unchecked checkbox"
+        />
+        <p>Instructional Designer</p>
+      </div>
+    </div>
+
+    <!-- Partition line -->
+    <hr class="horizontalPartition" />
+
+    <!-- Upload resume div -->
+    <div class="resumeUploadDiv">
+      <img src="{{ walkinIconBaseURL }}upload_green.svg" alt="Upload icon" />
+      <p>UPLOAD UPDATED RESUME</p>
+      <div class="circularButtonDiv">
+        <img src="{{ walkinIconBaseURL }}arrow_upward_black_24dp.svg" alt="" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Job roles component in ngFor -->
+  <app-walkin-role-details-card></app-walkin-role-details-card>
+  <app-walkin-role-details-card></app-walkin-role-details-card>
+</div>

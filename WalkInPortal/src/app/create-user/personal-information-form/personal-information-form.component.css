@@ -103,11 +103,16 @@
   text-transform: uppercase;
 }
 
-/* Email update checkbox */
-.emailUpdateCheckBoxDiv {
+/* Checkbox */
+.checkBoxDiv {
   display: flex;
+  align-items: center;
   cursor: pointer;
-  margin-bottom: 27px;
+  margin-bottom: 20px;
+}
+
+.checkBoxDiv > p {
+  margin: 0;
 }
 
 /* Button div */
