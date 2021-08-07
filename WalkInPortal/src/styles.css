@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @font-face {
   font-family: Quicksand;
-  src: url("./assets/quantum screen assets/Quicksand font 1/Quicksand-VariableFont_wght.ttf");
+  src: url("./assets/quantum-screen-assets/Quicksand font 1/Quicksand-VariableFont_wght.ttf");
 }
 
 html {
@@ -19,7 +19,17 @@ p {
   margin: 0;
 }
 
-/* -----------------------------Remove input type  number arrows---------------------------------- */
+input:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.error {
+  border-radius: 2px;
+  box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+}
+
+/* --------------------- Remove input type number arrows ----------------------- */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -32,7 +42,7 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
-/* -------------------------Customized scroll------------------------ */
+/* ------------------------- Customized scroll ------------------------ */
 /* width */
 ::-webkit-scrollbar {
   width: 10px;

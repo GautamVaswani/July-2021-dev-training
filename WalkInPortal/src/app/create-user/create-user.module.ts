@@ -8,6 +8,7 @@ import { PersonalInformationFormComponent } from './personal-information-form/pe
 import { QualificationFormComponent } from './qualification-form/qualification-form.component';
 import { FormReviewComponent } from './form-review/form-review.component';
 import { SharedModule } from '../shared/shared.module';
+import { CoreModule } from '../core/core.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { SharedModule } from '../shared/shared.module';
   ],
   imports: [
     CommonModule,
+    CoreModule,
     SharedModule,
     FormsModule,
     CreateUserRoutingModule

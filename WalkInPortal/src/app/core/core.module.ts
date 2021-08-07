@@ -1,6 +1,6 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UserCreationService } from './services/user-creation/user-creation.service';
+import { UserService } from './services/user/user.service';
 
 
 
@@ -9,7 +9,7 @@ import { UserCreationService } from './services/user-creation/user-creation.serv
   imports: [
     CommonModule
   ],
-  providers: [UserCreationService]
+  providers: [UserService]
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() core:CoreModule ){

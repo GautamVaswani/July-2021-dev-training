@@ -12,7 +12,7 @@ export class LoginBodyComponent implements OnInit {
   password: string = "";
 
   rememberMe: boolean = true;
-  iconFolderUrl: string = "../../../assets/quantum screen assets/icons/";
+  iconFolderUrl: string = "../../../assets/quantum-screen-assets/icons/";
 
   constructor(private router: Router) { }
 

@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WalkinRoleDetailsCardComponent implements OnInit {
 
-  quantumIconBaseURL: string = "/assets/quantum screen assets/icons/";
-  walkinIconBaseURL: string = "/assets/Walk In Portal - Icons - Listing to Success flow/";
+  quantumIconBaseURL: string = "/assets/quantum-screen-assets/icons/";
+  walkinIconBaseURL: string = "/assets/walk-in-portal-icons/";
 
   isRoleDetailsExpanded: boolean = false;
 

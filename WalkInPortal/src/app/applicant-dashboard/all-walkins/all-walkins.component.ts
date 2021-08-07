@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllWalkinsComponent implements OnInit {
   
-  walkinIconBaseURL: string = "../../../assets/Walk In Portal - Icons - Listing to Success flow/";
+  walkinIconBaseURL: string = "../../../assets/walk-in-portal-icons/";
 
   startDate = "10-July";
   endDate  = "21-July";

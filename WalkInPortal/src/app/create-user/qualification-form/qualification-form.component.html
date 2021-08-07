@@ -1,5 +1,9 @@
 <div class="qualificationFormContainer">
   <form class="qualificationForm" ng-submit="submit()" ngNativeValidate>
+    <!-- {{ userService.educationalQualificationVariable | json }}
+    <br />
+    {{ userService.professionalQualificationVariable | json }} -->
+
     <!-- Educational qualification form div -->
     <div class="qualificationDiv educationalQualificationDiv">
       <div
@@ -25,7 +29,9 @@
             max="100"
             step="0.01"
             required
-            [(ngModel)]="aggregatePercentage"
+            [(ngModel)]="
+              userService.educationalQualificationVariable.aggregatePercetage
+            "
           />
         </div>
 
@@ -35,7 +41,9 @@
           <select
             name="year"
             id="yearOfPassingInput"
-            [(ngModel)]="yearOfPassing"
+            [(ngModel)]="
+              userService.educationalQualificationVariable.yearOfPassing
+            "
             required
           ></select>
         </div>
@@ -48,7 +56,9 @@
             <select
               name="qualification"
               id="qualificationInput"
-              [(ngModel)]="qualification"
+              [(ngModel)]="
+                userService.educationalQualificationVariable.qualification
+              "
               required
             >
               <option *ngFor="let qualificationItem of qualificationList">
@@ -63,7 +73,7 @@
             <select
               name="stream"
               id="streamInput"
-              [(ngModel)]="stream"
+              [(ngModel)]="userService.educationalQualificationVariable.stream"
               required
             >
               <option *ngFor="let streamItem of streamList">
@@ -81,7 +91,9 @@
             <select
               name="college"
               id="collegeInput"
-              [(ngModel)]="college"
+              [(ngModel)]="
+                userService.educationalQualificationVariable.collegeName
+              "
               required
             >
               <option *ngFor="let collegeItem of collegeList">
@@ -100,7 +112,9 @@
               id="otherCollegeInput"
               type="text"
               required
-              [(ngModel)]="otherCollege"
+              [(ngModel)]="
+                userService.educationalQualificationVariable.collegeName
+              "
             />
           </div>
         </div>
@@ -115,7 +129,9 @@
             id="collegeLocationText"
             type="text"
             required
-            [(ngModel)]="collegeLocation"
+            [(ngModel)]="
+              userService.educationalQualificationVariable.collegeLocation
+            "
           />
         </div>
       </div>
@@ -165,7 +181,9 @@
         <div class="formInputDivContainer professionalFormInputDiv">
           <div
             class="experiencedUserDetailsDiv"
-            [class.hidden]="!isUserExperienced"
+            [class.hidden]="
+              !userService.professionalQualificationVariable.isUserExperienced
+            "
           >
             <!--Years of experience input div -->
             <div class="smallInputDiv yearsOfExperienceInputDiv">
@@ -175,7 +193,10 @@
                 id="yearsOfExperienceText"
                 type="number"
                 required
-                [(ngModel)]="yearsOfExperience"
+                [(ngModel)]="
+                  userService.professionalQualificationVariable
+                    .yearsOfExperience
+                "
               />
             </div>
 
@@ -187,7 +208,9 @@
                 id="currentCTCText"
                 type="number"
                 required
-                [(ngModel)]="currentCTC"
+                [(ngModel)]="
+                  userService.professionalQualificationVariable.currentCTC
+                "
               />
             </div>
 
@@ -199,7 +222,9 @@
                 id="expectedCTCText"
                 type="number"
                 required
-                [(ngModel)]="expectedCTC"
+                [(ngModel)]="
+                  userService.professionalQualificationVariable.expectedCTC
+                "
               />
             </div>
 
@@ -255,7 +280,10 @@
                 id="otherExpertiseTechnologyInput"
                 type="text"
                 required
-                [(ngModel)]="otherExpertiseTechnology"
+                [(ngModel)]="
+                  userService.professionalQualificationVariable
+                    .otherExpertiseTechnology
+                "
               />
             </div>
           </div>
@@ -314,12 +342,20 @@
                 id="otherFamiliarTechnologyInput"
                 type="text"
                 required
-                [(ngModel)]="otherFamiliarTechnology"
+                [(ngModel)]="
+                  userService.professionalQualificationVariable
+                    .otherFamiliarTechnology
+                "
               />
             </div>
 
             <!-- Notice period details -->
-            <div class="noticePeriodDiv" [class.hidden]="!isUserExperienced">
+            <div
+              class="noticePeriodDiv"
+              [class.hidden]="
+                !userService.professionalQualificationVariable.isUserExperienced
+              "
+            >
               <!-- Notice period radio -->
               <div class="smallInputDiv noticePeriodRadioDiv">
                 <label for="noticePeriodRadio"
@@ -359,21 +395,27 @@
                     id="noticeEndDateInput"
                     type="text"
                     required
-                    [(ngModel)]="noticeEndDateCollege"
+                    [(ngModel)]="
+                      userService.professionalQualificationVariable
+                        .noticePeriodEndDate
+                    "
                   />
                 </div>
 
                 <!-- notice period length div -->
                 <div class="largeInputDiv noticeLengthDiv">
                   <label for="noticeLengthInput"
-                    >How Long Is Your Notice Period?* (Mwntion in Months)</label
+                    >How Long Is Your Notice Period?* (Mention in Months)</label
                   >
                   <input
                     name="noticeLength"
                     id="noticeLengthInput"
                     type="text"
                     required
-                    [(ngModel)]="noticeLength"
+                    [(ngModel)]="
+                      userService.professionalQualificationVariable
+                        .noticePeriodDuration
+                    "
                   />
                 </div>
               </div>
@@ -417,7 +459,10 @@
                 id="previouslyAppliedRoleInput"
                 type="text"
                 required
-                [(ngModel)]="previouslyAppliedRole"
+                [(ngModel)]="
+                  userService.professionalQualificationVariable
+                    .roleAppliedPreviously
+                "
               />
             </div>
           </div>

@@ -8,17 +8,19 @@
     <p class="uploadPictureText">Upload Display Picture</p>
     <p class="uploadPictureInstructionText">Max. image size 5 MB</p>
   </div>
-  <form class="personalInformationForm" ng-submit="submit()" ngNativeValidate>
+  <form class="personalInformationForm" #personalInformationForm="ngForm">
+    <!-- {{ personalInformationForm.value | json }} -->
     <div class="formInputDiv">
       <!-- First name input div -->
       <div class="textInputDiv firstNameInputDiv">
         <label for="firstNameText">First Name*</label>
         <input
           type="text"
-          name="firstName"
-          id="firstNameText"
           required
-          [(ngModel)]="firstName"
+          #firstName="ngModel"
+          name="firstName"
+          [(ngModel)]="userService.personalInformationVariable.firstName"
+          [class.error]="firstName.invalid && firstName.touched"
         />
       </div>
 
@@ -27,10 +29,9 @@
         <label for="lastNameText">Last Name*</label>
         <input
           type="text"
-          name="lastName"
-          id="lastNameText"
           required
-          [(ngModel)]="lastName"
+          name="lastName"
+          [(ngModel)]="userService.personalInformationVariable.lastName"
         />
       </div>
 
@@ -39,37 +40,35 @@
         <label for="emailText">Email*</label>
         <input
           type="text"
-          name="email"
-          id="emailText"
           required
-          [(ngModel)]="email"
+          name="email"
+          [(ngModel)]="userService.personalInformationVariable.email"
         />
       </div>
 
       <!-- Phone number input div -->
       <div class="phoneInputDiv textInputDiv">
         <label for="phoneNumber">Phone Number*</label>
-        <div>
+        <div ngModelGroup="contactDetails">
           <div>+</div>
           <input
             class="phoneInputFeild phoneCode"
             type="tel"
+            required
             name="phoneCode"
             minlength="1"
             maxlength="2"
             size="2"
-            [(ngModel)]="phoneCode"
-            required
+            [(ngModel)]="userService.personalInformationVariable.phoneCode"
           />
           <input
             class="phoneInputFeild phoneNumber"
-            id="phoneNumber"
             type="tel"
+            required
             name="phoneNumber"
             minlength="10"
             maxlength="10"
-            [(ngModel)]="phoneNumber"
-            required
+            [(ngModel)]="userService.personalInformationVariable.phoneNumber"
           />
         </div>
       </div>
@@ -89,8 +88,7 @@
         <input
           type="text"
           name="portfolioURL"
-          id="portfolioText"
-          [(ngModel)]="portfolioURL"
+          [(ngModel)]="userService.personalInformationVariable.portfolioURL"
         />
       </div>
 
@@ -145,8 +143,7 @@
         <input
           type="text"
           name="referralName"
-          id="referralText"
-          [(ngModel)]="referralName"
+          [(ngModel)]="userService.personalInformationVariable.referredBy"
         />
       </div>
 
