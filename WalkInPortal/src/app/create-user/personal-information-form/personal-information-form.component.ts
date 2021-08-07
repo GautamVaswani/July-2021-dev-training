@@ -21,13 +21,11 @@ export class PersonalInformationFormComponent implements OnInit {
     if(checkbox && role){
       
       if(this.userService.personalInformationVariable.preferredJobRoleList.includes(role)){
-        checkbox.src = `${this.quantumIconFolderBaseURL}checkbox-unchecked.svg`;
         this.userService.personalInformationVariable.preferredJobRoleList = 
         this.userService.personalInformationVariable.preferredJobRoleList
         .filter(item => item !== role);
       }
       else{
-        checkbox.src = `${this.quantumIconFolderBaseURL}checkbox-checked.svg`; 
         this.userService.personalInformationVariable.preferredJobRoleList.push(role);
       }
     } 
@@ -36,12 +34,6 @@ export class PersonalInformationFormComponent implements OnInit {
   mailUpdateChangeHandler(className: string){
     let checkbox = document.querySelector(`.${className}`)?.getElementsByTagName("img")[0];
     if(checkbox){
-      if(this.userService.personalInformationVariable.mailUpdates){
-        checkbox.src = `${this.quantumIconFolderBaseURL}checkbox-unchecked.svg`;
-      }
-      else{
-        checkbox.src = `${this.quantumIconFolderBaseURL}checkbox-checked.svg`; 
-      }
       this.userService.personalInformationVariable.mailUpdates 
       = !this.userService.personalInformationVariable.mailUpdates;
       console.log(this.userService.personalInformationVariable);

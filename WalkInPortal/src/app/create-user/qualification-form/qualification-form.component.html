@@ -32,6 +32,8 @@
             [(ngModel)]="
               userService.educationalQualificationVariable.aggregatePercetage
             "
+            #firstName="ngModel"
+            [class.error]="firstName.invalid && firstName.touched"
           />
         </div>
 

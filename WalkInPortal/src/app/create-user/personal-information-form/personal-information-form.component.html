@@ -17,9 +17,9 @@
         <input
           type="text"
           required
-          #firstName="ngModel"
           name="firstName"
           [(ngModel)]="userService.personalInformationVariable.firstName"
+          #firstName="ngModel"
           [class.error]="firstName.invalid && firstName.touched"
         />
       </div>
@@ -32,6 +32,8 @@
           required
           name="lastName"
           [(ngModel)]="userService.personalInformationVariable.lastName"
+          #lastName="ngModel"
+          [class.error]="lastName.invalid && lastName.touched"
         />
       </div>
 
@@ -39,10 +41,12 @@
       <div class="textInputDiv emailInputDiv">
         <label for="emailText">Email*</label>
         <input
-          type="text"
+          type="email"
           required
           name="email"
           [(ngModel)]="userService.personalInformationVariable.email"
+          #email="ngModel"
+          [class.error]="email.invalid && email.touched"
         />
       </div>
 
@@ -60,6 +64,8 @@
             maxlength="2"
             size="2"
             [(ngModel)]="userService.personalInformationVariable.phoneCode"
+            #phoneCode="ngModel"
+            [class.error]="phoneCode.invalid && phoneCode.touched"
           />
           <input
             class="phoneInputFeild phoneNumber"
@@ -69,6 +75,8 @@
             minlength="10"
             maxlength="10"
             [(ngModel)]="userService.personalInformationVariable.phoneNumber"
+            #phoneNumber="ngModel"
+            [class.error]="phoneNumber.invalid && phoneNumber.touched"
           />
         </div>
       </div>
@@ -103,8 +111,22 @@
           (click)="preferredJobRoleChangeHandler('job1UpdateCheckBoxDiv')"
         >
           <img
+            *ngIf="
+              userService.personalInformationVariable.preferredJobRoleList.includes(
+                'Instructional Designer'
+              )
+            "
+            src="{{ quantumIconFolderBaseURL }}checkbox-checked.svg"
+            alt="Checked"
+          />
+          <img
+            *ngIf="
+              !userService.personalInformationVariable.preferredJobRoleList.includes(
+                'Instructional Designer'
+              )
+            "
             src="{{ quantumIconFolderBaseURL }}checkbox-unchecked.svg"
-            alt="Unchecked checkbox"
+            alt="Unchecked"
           />
           <p>Instructional Designer</p>
         </div>
@@ -115,8 +137,22 @@
           (click)="preferredJobRoleChangeHandler('job2UpdateCheckBoxDiv')"
         >
           <img
+            *ngIf="
+              userService.personalInformationVariable.preferredJobRoleList.includes(
+                'Software Engineer'
+              )
+            "
+            src="{{ quantumIconFolderBaseURL }}checkbox-checked.svg"
+            alt="Checked"
+          />
+          <img
+            *ngIf="
+              !userService.personalInformationVariable.preferredJobRoleList.includes(
+                'Software Engineer'
+              )
+            "
             src="{{ quantumIconFolderBaseURL }}checkbox-unchecked.svg"
-            alt="Unchecked checkbox"
+            alt="Unchecked"
           />
           <p>Software Engineer</p>
         </div>
@@ -127,8 +163,22 @@
           (click)="preferredJobRoleChangeHandler('job3UpdateCheckBoxDiv')"
         >
           <img
+            *ngIf="
+              userService.personalInformationVariable.preferredJobRoleList.includes(
+                'Software Quality Engineer'
+              )
+            "
+            src="{{ quantumIconFolderBaseURL }}checkbox-checked.svg"
+            alt="Checked"
+          />
+          <img
+            *ngIf="
+              !userService.personalInformationVariable.preferredJobRoleList.includes(
+                'Software Quality Engineer'
+              )
+            "
             src="{{ quantumIconFolderBaseURL }}checkbox-unchecked.svg"
-            alt="Unchecked checkbox"
+            alt="Unchecked"
           />
           <p>Software Quality Engineer</p>
         </div>
@@ -153,8 +203,14 @@
         (click)="mailUpdateChangeHandler('emailUpdateCheckBoxDiv')"
       >
         <img
+          *ngIf="userService.personalInformationVariable.mailUpdates"
           src="{{ quantumIconFolderBaseURL }}checkbox-checked.svg"
-          alt="Checked checkbox"
+          alt="Checked"
+        />
+        <img
+          *ngIf="!userService.personalInformationVariable.mailUpdates"
+          src="{{ quantumIconFolderBaseURL }}checkbox-unchecked.svg"
+          alt="Unchecked"
         />
         <p>Send me job related updates via mail</p>
       </div>
