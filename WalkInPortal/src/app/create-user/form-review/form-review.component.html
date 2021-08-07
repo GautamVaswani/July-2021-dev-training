@@ -1,0 +1,561 @@
+<!-- Personal Details Edit Div -->
+<div class="formEditHeader">
+  <div>
+    <p>Personal Information</p>
+  </div>
+  <div class="editIconDiv">
+    <img
+      src="{{ walkinIconFolderBaseURL }}edit_green.png"
+      alt=""
+      class="editIcon"
+    />
+    <p>Edit</p>
+  </div>
+</div>
+<!-- Personal Details Edit Div -->
+
+<!-- Personal Details Start -->
+<div class="personalInformationFormContainer">
+  <div class="uploadImageDiv">
+    <img
+      src="{{ walkinIconFolderBaseURL }}profile_upload.png"
+      alt="Upload display picture"
+      class="uploadImage"
+    />
+    <!-- <p class="uploadPictureText">Upload Display Picture</p>
+    <p class="uploadPictureInstructionText">Max. image size 5 MB</p> -->
+  </div>
+  <div class="personalInformationForm">
+    <!-- ng-submit="submit()" ngNativeValidate -->
+    <div class="formInputDiv">
+      <!-- First name input div -->
+      <div class="textInputDiv firstNameInputDiv">
+        <label for="firstNameText">First Name*</label>
+        <!-- <input type="text" name="firstName" id="firstNameText" required /> -->
+        <!-- [(ngModel)]="firstName" -->
+        <div id="firstNameText">FirstName</div>
+      </div>
+
+      <!-- Last name input div -->
+      <div class="textInputDiv lastNameInputDiv">
+        <label for="lastNameText">Last Name*</label>
+        <!-- <input type="text" name="lastName" id="lastNameText" required /> -->
+        <!-- [(ngModel)]="lastName" -->
+        <div id="lastNameText">LastName</div>
+      </div>
+
+      <!-- Email input div-->
+      <div class="textInputDiv emailInputDiv">
+        <label for="emailText">Email*</label>
+        <!-- <input type="text" name="email" id="emailText" required /> -->
+        <!-- [(ngModel)]="email" -->
+        <div id="emailText">Email</div>
+      </div>
+
+      <!-- Phone number input div -->
+      <div class="phoneInputDiv textInputDiv">
+        <label for="phoneNumber">Phone Number*</label>
+        <div>
+          <div>+</div>
+          <!-- <input class="phoneInputFeild phoneCode" type="tel" name="phoneCode" minlength="1" maxlength="2" size="2" required /> -->
+          <!-- [(ngModel)]="phoneCode" -->
+          <div class="phoneCode">91</div>
+          <!-- <input class="phoneInputFeild phoneNumber" id="phoneNumber" type="tel" name="phoneNumber" minlength="10" maxlength="10" required /> -->
+          <!-- [(ngModel)]="phoneNumber" -->
+          <div class="phoneNumber" id="phoneNumber">9999999999</div>
+        </div>
+      </div>
+
+      <!-- Upload resume div -->
+      <div class="resumeUploadDiv">
+        <img
+          src="{{ walkinIconFolderBaseURL }}upload_green.svg"
+          alt="Upload icon"
+        />
+        <p>UPLOAD RESUME</p>
+        <p>resume.pdf</p>
+      </div>
+
+      <!-- Portfolio url input div -->
+      <div class="textInputDiv portfolioInputDiv">
+        <label for="portfolioText">Enter portfolio URL (If any)</label>
+        <!-- <input type="text" name="portfolioURL" id="portfolioText" /> -->
+        <!-- [(ngModel)]="portfolioURL" -->
+        <div id="portfolioText">www.myportfolio.in</div>
+      </div>
+
+      <!-- Preferred job roles input div -->
+      <div class="textInputDiv preferredJobRoleDiv">
+        <label>Preferred Job Roles</label>
+
+        <!-- ngFor when fetching roles from database -->
+        <!-- Job1 -->
+        <div class="checkBoxDiv job1UpdateCheckBoxDiv">
+          <!-- (click)="preferredJobRoleChangeHandler('job1UpdateCheckBoxDiv')" -->
+          <!-- <img
+            src="{{ quantumIconFolderBaseURL }}checkbox-unchecked.svg"
+            alt="Unchecked checkbox"
+          /> -->
+          <p>Instructional Designer</p>
+        </div>
+
+        <!-- Job2 -->
+        <div class="checkBoxDiv job2UpdateCheckBoxDiv">
+          <!-- (click)="preferredJobRoleChangeHandler('job2UpdateCheckBoxDiv')" -->
+          <!-- <img
+            src="{{ quantumIconFolderBaseURL }}checkbox-unchecked.svg"
+            alt="Unchecked checkbox"
+          /> -->
+          <p>Software Engineer</p>
+        </div>
+
+        <!-- Job3 -->
+        <div class="checkBoxDiv job3UpdateCheckBoxDiv">
+          <!-- (click)="preferredJobRoleChangeHandler('job3UpdateCheckBoxDiv')" -->
+          <!-- <img
+            src="{{ quantumIconFolderBaseURL }}checkbox-unchecked.svg"
+            alt="Unchecked checkbox"
+          /> -->
+          <p>Software Quality Engineer</p>
+        </div>
+      </div>
+
+      <!-- Referral input div -->
+      <div class="textInputDiv referralInputDiv">
+        <label for="referralText"
+          >If You Are Registering Via A Referral, Please Mention Full Name Of
+          The Employee Who Referred You</label
+        >
+        <!-- <input type="text" name="referralName" id="referralText" /> -->
+        <!-- [(ngModel)]="referralName" -->
+        <div id="referralText">Gautam Vaswani</div>
+      </div>
+
+      <!-- Update via email checkbox div -->
+      <div class="checkBoxDiv emailUpdateCheckBoxDiv">
+        <!-- (click)="mailUpdateChangeHandler('emailUpdateCheckBoxDiv')" -->
+        <img
+          src="{{ quantumIconFolderBaseURL }}checkbox-checked.svg"
+          alt="Checked checkbox"
+        />
+        <p>Send me job related updates via mail</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Personal Details End -->
+
+<!-- Qualification Details Edit Div -->
+<div class="formEditHeader">
+  <div>
+    <p>Qualifications</p>
+  </div>
+  <div class="editIconDiv">
+    <img
+      src="{{ walkinIconFolderBaseURL }}edit_green.png"
+      alt=""
+      class="editIcon"
+    />
+    <p>Edit</p>
+  </div>
+</div>
+<!-- Qualification Details Edit Div -->
+
+<!-- Qualification Details Start -->
+<div class="qualificationFormContainer">
+  <form class="qualificationForm" ng-submit="submit()" ngNativeValidate>
+    <!-- Educational qualification form div -->
+    <div class="qualificationDiv educationalQualificationDiv">
+      <div class="qualificationHeaderDiv educationalHeaderDiv">
+        <!-- (click)="qualificationHeaderClickHandler('educationalHeaderDiv')" -->
+        <p>Educational Qualifications</p>
+        <div class="divider"></div>
+        <img src="{{ walkinIconFolderBaseURL }}expand_less_green.svg" alt="" />
+      </div>
+      <div class="formInputDivContainer educationalInputFieldsDiv">
+        <!-- [class.hidden]="!isEducationalQualificationExpanded" -->
+        <!-- Aggregate percentage input div -->
+        <div class="smallInputDiv aggregatePercentageInputDiv">
+          <label for="aggregatePercentageText">Aggregate Percentage*</label>
+          <input
+            name="aggregatePercentage"
+            id="aggregatePercentageText"
+            type="number"
+            min="0"
+            max="100"
+            step="0.01"
+            required
+          />
+          <!-- [(ngModel)]="aggregatePercentage" -->
+        </div>
+
+        <!-- Year of passing -->
+        <div class="smallInputDiv yearOfPassingDiv">
+          <label for="yearOfPassingInput">Year Of Passing*</label>
+          <select name="year" id="yearOfPassingInput" required>
+            <!-- [(ngModel)]="yearOfPassing" -->
+          </select>
+        </div>
+
+        <!-- Qualification Stream div -->
+        <div class="twoInputDiv">
+          <!-- Qualification -->
+          <div class="largeInputDiv qualificationDiv">
+            <label for="qualificationInput">Qualification*</label>
+            <select name="qualification" id="qualificationInput" required>
+              <!-- [(ngModel)]="qualification" -->
+              <!-- <option *ngFor="let qualificationItem of qualificationList">
+                {{ qualificationItem }}
+              </option> -->
+            </select>
+          </div>
+
+          <!-- Stream -->
+          <div class="largeInputDiv streamDiv">
+            <label for="streamInput">Stream*</label>
+            <select name="stream" id="streamInput" required>
+              <!-- [(ngModel)]="stream" -->
+              <!-- <option *ngFor="let streamItem of streamList">
+                {{ streamItem }}
+              </option> -->
+            </select>
+          </div>
+        </div>
+
+        <!-- College row div -->
+        <div class="twoInputDiv">
+          <!-- College input div-->
+          <div class="largeInputDiv collegeDiv">
+            <label for="collegeInput">College*</label>
+            <select name="college" id="collegeInput" required>
+              [(ngModel)]="college"
+              <!-- <option *ngFor="let collegeItem of collegeList">
+                {{ collegeItem }}
+              </option> -->
+            </select>
+          </div>
+
+          <!-- Others: College input div-->
+          <div class="largeInputDiv otherCollegeDiv">
+            <label for="otherCollegeInput"
+              >If Others, Please Enter Your College Name</label
+            >
+            <input
+              name="otherCollege"
+              id="otherCollegeInput"
+              type="text"
+              required
+            />
+            [(ngModel)]="otherCollege"
+          </div>
+        </div>
+
+        <!-- College location input div -->
+        <div class="smallInputDiv collegeLocationInputDiv">
+          <label for="collegeLocationText"
+            >Where is your college located?*</label
+          >
+          <input
+            name="collegeLocation"
+            id="collegeLocationText"
+            type="text"
+            required
+          />
+          [(ngModel)]="collegeLocation"
+        </div>
+      </div>
+    </div>
+
+    <!-- Professional qualification form div -->
+    <div class="professionalQualificationDiv">
+      <div class="qualificationHeaderDiv professionalHeaderDiv">
+        <!-- (click)="qualificationHeaderClickHandler('professionalHeaderDiv')" -->
+        <p>Professional Qualifications</p>
+        <div class="divider"></div>
+        <img src="{{ walkinIconFolderBaseURL }}expand_less_green.svg" alt="" />
+      </div>
+      <div class="professionalInputFieldsDiv">
+        <div class="formInputDivContainer userTypeContainer">
+          <!-- User type radio -->
+          <div class="smallInputDiv userTypeDiv">
+            <label for="userTypeRadio">Applicant type*</label>
+            <div class="radioDiv">
+              <input
+                type="radio"
+                id="userType1"
+                name="userType"
+                value="Fresher"
+                checked
+              />
+              (change)="radioChangehandler($event, 'userTypeDiv')"
+              <label for="userType1">Fresher</label>
+              <pre>&#9;</pre>
+              <input
+                type="radio"
+                id="userType2"
+                name="userType"
+                value="Experienced"
+              />
+              (change)="radioChangehandler($event, 'userTypeDiv')"
+              <label for="userType2">Experienced</label>
+            </div>
+          </div>
+        </div>
+        <!-- Professional qualification input container -->
+        <div class="formInputDivContainer professionalFormInputDiv">
+          <div class="experiencedUserDetailsDiv">
+            <!--Years of experience input div -->
+            <div class="smallInputDiv yearsOfExperienceInputDiv">
+              <label for="yearsOfExperienceText">Years of Experience*</label>
+              <input
+                name="yearsOfExperience"
+                id="yearsOfExperienceText"
+                type="number"
+                required
+              />
+              <!-- [(ngModel)]="yearsOfExperience" -->
+            </div>
+
+            <!--Current CTC input div -->
+            <div class="smallInputDiv currentCTCInputDiv">
+              <label for="currentCTCText">Current CTC* (In Rupees)</label>
+              <input
+                name="currentCTC"
+                id="currentCTCText"
+                type="number"
+                required
+              />
+              <!-- [(ngModel)]="currentCTC" -->
+            </div>
+
+            <!--Expected CTC input div -->
+            <div class="smallInputDiv expectedCTCInputDiv">
+              <label for="expectedCTCText">Expected CTC* (In Rupees)</label>
+              <input
+                name="expectedCTC"
+                id="expectedCTCText"
+                type="number"
+                required
+              />
+              <!-- [(ngModel)]="expectedCTC" -->
+            </div>
+
+            <!-- Expertised technologies input div -->
+            <div class="checkBoxInputDiv expertiseTechInputDiv">
+              <label>Select All The Technologies You Expertise In*</label>
+
+              <!-- ngFor when fetching technologies from database -->
+              <!-- Tech1 -->
+              <div class="checkBoxDiv expertiseTech1CheckBoxDiv">
+                <!-- (click)="checkBoxClickHandler('expertiseTech1CheckBoxDiv')" -->
+                <img
+                  src="{{ quantumIconFolderBaseURL }}checkbox-unchecked.svg"
+                  alt="Unchecked checkbox"
+                />
+                <p>Javascript</p>
+              </div>
+
+              <!-- Tech2 -->
+              <div class="checkBoxDiv expertiseTech2CheckBoxDiv">
+                <!-- (click)="checkBoxClickHandler('expertiseTech2CheckBoxDiv')" -->
+                <img
+                  src="{{ quantumIconFolderBaseURL }}checkbox-unchecked.svg"
+                  alt="Unchecked checkbox"
+                />
+                <p>Angular JS</p>
+              </div>
+
+              <!-- Tech3 -->
+              <div class="checkBoxDiv expertiseTech3CheckBoxDiv">
+                <!-- (click)="checkBoxClickHandler('expertiseTech3CheckBoxDiv')" -->
+                <img
+                  src="{{ quantumIconFolderBaseURL }}checkbox-unchecked.svg"
+                  alt="Unchecked checkbox"
+                />
+                <p>React</p>
+              </div>
+            </div>
+
+            <!-- Other expertise technology input div-->
+            <div class="largeInputDiv otherExpertiseTechnologyDiv">
+              <label for="otherExpertiseTechnologyInput"
+                >If Others, Please Mention</label
+              >
+              <input
+                name="otherExpertiseTechnology"
+                id="otherExpertiseTechnologyInput"
+                type="text"
+                required
+              />
+              <!-- [(ngModel)]="otherExpertiseTechnology" -->
+            </div>
+          </div>
+
+          <!-- compulsory fields -->
+          <div class="">
+            <!-- Familiar technologies input div -->
+            <div class="checkBoxInputDiv familiarTechInputDiv">
+              <label>Select All The Technologies You Familiar In*</label>
+
+              <!-- ngFor when fetching technologies from database -->
+              <!-- Tech1 -->
+              <div class="checkBoxDiv familiarTech1CheckBoxDiv">
+                <!-- (click)="checkBoxClickHandler('familiarTech1CheckBoxDiv')" -->
+                <img
+                  src="{{ quantumIconFolderBaseURL }}checkbox-unchecked.svg"
+                  alt="Unchecked checkbox"
+                />
+                <p>Javascript</p>
+              </div>
+
+              <!-- Tech2 -->
+              <div class="checkBoxDiv familiarTech2CheckBoxDiv">
+                <!-- (click)="checkBoxClickHandler('familiarTech2CheckBoxDiv')" -->
+                <img
+                  src="{{ quantumIconFolderBaseURL }}checkbox-unchecked.svg"
+                  alt="Unchecked checkbox"
+                />
+                <p>Angular JS</p>
+              </div>
+
+              <!-- Tech3 -->
+              <div class="checkBoxDiv familiarTech3CheckBoxDiv">
+                <!-- (click)="checkBoxClickHandler('familiarTech3CheckBoxDiv')" -->
+                <img
+                  src="{{ quantumIconFolderBaseURL }}checkbox-unchecked.svg"
+                  alt="Unchecked checkbox"
+                />
+                <p>React</p>
+              </div>
+            </div>
+
+            <!-- Other Familiar technology input div-->
+            <div class="largeInputDiv otherFamiliarTechnologyDiv">
+              <label for="otherFamiliarTechnologyInput"
+                >If Others, Please Mention</label
+              >
+              <input
+                name="otherFamiliarTechnology"
+                id="otherFamiliarTechnologyInput"
+                type="text"
+                required
+              />
+              [(ngModel)]="otherFamiliarTechnology"
+            </div>
+
+            <!-- Notice period details -->
+            <div class="noticePeriodDiv">
+              <!-- Notice period radio -->
+              <div class="smallInputDiv noticePeriodRadioDiv">
+                <label for="noticePeriodRadio"
+                  >Are You Currently On Notice Period?*</label
+                >
+                <div class="radioDiv">
+                  <input
+                    type="radio"
+                    id="noticePeriod1"
+                    name="noticePeriod"
+                    value="Yes"
+                    checked
+                  />
+                  <!-- (change)="radioChangehandler($event, 'noticePeriodDiv')" -->
+                  <label for="noticePeriod1">Yes</label>
+                  <pre>&#9;</pre>
+                  <input
+                    type="radio"
+                    id="noticePeriod2"
+                    name="noticePeriod"
+                    value="No"
+                  />
+                  <!-- (change)="radioChangehandler($event, 'noticePeriodDiv')" -->
+                  <label for="noticePeriod2">No</label>
+                </div>
+              </div>
+
+              <!-- Notice period end date and notice period length div -->
+              <div class="twoInputDiv">
+                <!-- Notice period end date div-->
+                <div class="largeInputDiv noticeEndDateDiv">
+                  <label for="noticeEndDateInput"
+                    >If Yes, When Will Your Notice Period End?*</label
+                  >
+                  <input
+                    name="noticeEndDate"
+                    id="noticeEndDateInput"
+                    type="text"
+                    required
+                  />
+                  <!-- [(ngModel)]="noticeEndDateCollege" -->
+                </div>
+
+                <!-- notice period length div -->
+                <div class="largeInputDiv noticeLengthDiv">
+                  <label for="noticeLengthInput"
+                    >How Long Is Your Notice Period?* (Mention in Months)</label
+                  >
+                  <input
+                    name="noticeLength"
+                    id="noticeLengthInput"
+                    type="text"
+                    required
+                  />
+                  <!-- [(ngModel)]="noticeLength" -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Appeared for test radio -->
+            <div class="smallInputDiv appearedForTestDiv">
+              <label for="appearedForTestRadio"
+                >Have You Appeared For Any Test By Zeus In The Past 12
+                Months?*</label
+              >
+              <div class="radioDiv">
+                <input
+                  type="radio"
+                  id="appearedForTest1"
+                  name="appearedForTest"
+                  value="Yes"
+                />
+                <!-- (change)="radioChangehandler($event, 'appearedForTestDiv')" -->
+                <label for="appearedForTest1">Yes</label>
+                <pre>&#9;</pre>
+                <input
+                  type="radio"
+                  id="appearedForTest2"
+                  name="appearedForTest"
+                  value="No"
+                  checked
+                />
+                <!-- (change)="radioChangehandler($event, 'appearedForTestDiv')" -->
+                <label for="appearedForTest2">No</label>
+              </div>
+            </div>
+
+            <!-- Previously applied role input div-->
+            <div class="largeInputDiv previouslyAppliedRoleDiv">
+              <label for="previouslyAppliedRoleInput"
+                >If yes, Which Role Did you apply for?</label
+              >
+              <input
+                name="previouslyAppliedRole"
+                id="previouslyAppliedRoleInput"
+                type="text"
+                required
+              />
+              <!-- [(ngModel)]="previouslyAppliedRole" -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- Qualification Details End -->
+
+<!-- Review Page Button Div -->
+<div class="formButtonDiv">
+  <button type="submit" routerLink="../qualificationForm">Previous</button>
+</div>

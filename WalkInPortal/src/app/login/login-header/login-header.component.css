@@ -1,0 +1,26 @@
+header {
+  display: flex;
+  width: 100%;
+  height: 56px;
+  background-color: #1f2834;
+  position: relative;
+}
+
+.header-icon {
+  color: white;
+  width: 134px;
+  height: 36px;
+  position: absolute;
+  top: 11px;
+  left: 24px;
+}
+
+hr {
+  width: 100%;
+  height: 0px;
+  margin: 0;
+  position: absolute;
+  top: 56px;
+  border: none;
+  border-bottom: #31b9e4 solid 2px;
+}

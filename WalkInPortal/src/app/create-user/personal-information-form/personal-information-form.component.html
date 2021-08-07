@@ -1,0 +1,224 @@
+<div class="personalInformationFormContainer">
+  <div class="uploadImageDiv">
+    <img
+      src="{{ walkinIconFolderBaseURL }}profile_upload.png"
+      alt="Upload display picture"
+      class="uploadImage"
+    />
+    <p class="uploadPictureText">Upload Display Picture</p>
+    <p class="uploadPictureInstructionText">Max. image size 5 MB</p>
+  </div>
+  <form class="personalInformationForm" #personalInformationForm="ngForm">
+    <!-- {{ personalInformationForm.value | json }} -->
+    <div class="formInputDiv">
+      <!-- First name input div -->
+      <div class="textInputDiv firstNameInputDiv">
+        <label for="firstNameText">First Name*</label>
+        <input
+          type="text"
+          required
+          name="firstName"
+          [(ngModel)]="userService.personalInformationVariable.firstName"
+          #firstName="ngModel"
+          [class.error]="firstName.invalid && firstName.touched"
+        />
+      </div>
+
+      <!-- Last name input div -->
+      <div class="textInputDiv lastNameInputDiv">
+        <label for="lastNameText">Last Name*</label>
+        <input
+          type="text"
+          required
+          name="lastName"
+          [(ngModel)]="userService.personalInformationVariable.lastName"
+          #lastName="ngModel"
+          [class.error]="lastName.invalid && lastName.touched"
+        />
+      </div>
+
+      <!-- Email input div-->
+      <div class="textInputDiv emailInputDiv">
+        <label for="emailText">Email*</label>
+        <input
+          type="email"
+          required
+          name="email"
+          [(ngModel)]="userService.personalInformationVariable.email"
+          #email="ngModel"
+          [class.error]="email.invalid && email.touched"
+        />
+      </div>
+
+      <!-- Phone number input div -->
+      <div class="phoneInputDiv textInputDiv">
+        <label for="phoneNumber">Phone Number*</label>
+        <div ngModelGroup="contactDetails">
+          <div>+</div>
+          <input
+            class="phoneInputFeild phoneCode"
+            type="tel"
+            required
+            name="phoneCode"
+            minlength="1"
+            maxlength="2"
+            size="2"
+            [(ngModel)]="userService.personalInformationVariable.phoneCode"
+            #phoneCode="ngModel"
+            [class.error]="phoneCode.invalid && phoneCode.touched"
+          />
+          <input
+            class="phoneInputFeild phoneNumber"
+            type="tel"
+            required
+            name="phoneNumber"
+            minlength="10"
+            maxlength="10"
+            [(ngModel)]="userService.personalInformationVariable.phoneNumber"
+            #phoneNumber="ngModel"
+            [class.error]="phoneNumber.invalid && phoneNumber.touched"
+          />
+        </div>
+      </div>
+
+      <!-- Upload resume div -->
+      <div class="resumeUploadDiv">
+        <img
+          src="{{ walkinIconFolderBaseURL }}upload_green.svg"
+          alt="Upload icon"
+        />
+        <p>UPLOAD RESUME</p>
+      </div>
+
+      <!-- Portfolio url input div -->
+      <div class="textInputDiv portfolioInputDiv">
+        <label for="portfolioText">Enter portfolio URL (If any)</label>
+        <input
+          type="text"
+          name="portfolioURL"
+          [(ngModel)]="userService.personalInformationVariable.portfolioURL"
+        />
+      </div>
+
+      <!-- Preferred job roles input div -->
+      <div class="textInputDiv preferredJobRoleDiv">
+        <label>Preferred Job Roles</label>
+
+        <!-- ngFor when fetching roles from database -->
+        <!-- Job1 -->
+        <div
+          class="checkBoxDiv job1UpdateCheckBoxDiv"
+          (click)="preferredJobRoleChangeHandler('job1UpdateCheckBoxDiv')"
+        >
+          <img
+            *ngIf="
+              userService.personalInformationVariable.preferredJobRoleList.includes(
+                'Instructional Designer'
+              )
+            "
+            src="{{ quantumIconFolderBaseURL }}checkbox-checked.svg"
+            alt="Checked"
+          />
+          <img
+            *ngIf="
+              !userService.personalInformationVariable.preferredJobRoleList.includes(
+                'Instructional Designer'
+              )
+            "
+            src="{{ quantumIconFolderBaseURL }}checkbox-unchecked.svg"
+            alt="Unchecked"
+          />
+          <p>Instructional Designer</p>
+        </div>
+
+        <!-- Job2 -->
+        <div
+          class="checkBoxDiv job2UpdateCheckBoxDiv"
+          (click)="preferredJobRoleChangeHandler('job2UpdateCheckBoxDiv')"
+        >
+          <img
+            *ngIf="
+              userService.personalInformationVariable.preferredJobRoleList.includes(
+                'Software Engineer'
+              )
+            "
+            src="{{ quantumIconFolderBaseURL }}checkbox-checked.svg"
+            alt="Checked"
+          />
+          <img
+            *ngIf="
+              !userService.personalInformationVariable.preferredJobRoleList.includes(
+                'Software Engineer'
+              )
+            "
+            src="{{ quantumIconFolderBaseURL }}checkbox-unchecked.svg"
+            alt="Unchecked"
+          />
+          <p>Software Engineer</p>
+        </div>
+
+        <!-- Job3 -->
+        <div
+          class="checkBoxDiv job3UpdateCheckBoxDiv"
+          (click)="preferredJobRoleChangeHandler('job3UpdateCheckBoxDiv')"
+        >
+          <img
+            *ngIf="
+              userService.personalInformationVariable.preferredJobRoleList.includes(
+                'Software Quality Engineer'
+              )
+            "
+            src="{{ quantumIconFolderBaseURL }}checkbox-checked.svg"
+            alt="Checked"
+          />
+          <img
+            *ngIf="
+              !userService.personalInformationVariable.preferredJobRoleList.includes(
+                'Software Quality Engineer'
+              )
+            "
+            src="{{ quantumIconFolderBaseURL }}checkbox-unchecked.svg"
+            alt="Unchecked"
+          />
+          <p>Software Quality Engineer</p>
+        </div>
+      </div>
+
+      <!-- Referral input div -->
+      <div class="textInputDiv referralInputDiv">
+        <label for="referralText"
+          >If You Are Registering Via A Referral, Please Mention Full Name Of
+          The Employee Who Referred You</label
+        >
+        <input
+          type="text"
+          name="referralName"
+          [(ngModel)]="userService.personalInformationVariable.referredBy"
+        />
+      </div>
+
+      <!-- Update via email checkbox div -->
+      <div
+        class="checkBoxDiv emailUpdateCheckBoxDiv"
+        (click)="mailUpdateChangeHandler('emailUpdateCheckBoxDiv')"
+      >
+        <img
+          *ngIf="userService.personalInformationVariable.mailUpdates"
+          src="{{ quantumIconFolderBaseURL }}checkbox-checked.svg"
+          alt="Checked"
+        />
+        <img
+          *ngIf="!userService.personalInformationVariable.mailUpdates"
+          src="{{ quantumIconFolderBaseURL }}checkbox-unchecked.svg"
+          alt="Unchecked"
+        />
+        <p>Send me job related updates via mail</p>
+      </div>
+    </div>
+
+    <!-- personalInformationForm page button div -->
+    <div class="formButtonDiv">
+      <button type="submit" routerLink="../qualificationForm">Next</button>
+    </div>
+  </form>
+</div>

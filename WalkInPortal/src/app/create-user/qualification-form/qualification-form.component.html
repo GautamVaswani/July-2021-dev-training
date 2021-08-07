@@ -1,0 +1,499 @@
+<div class="qualificationFormContainer">
+  <form class="qualificationForm" ng-submit="submit()" ngNativeValidate>
+    <!-- {{ userService.educationalQualificationVariable | json }}
+    <br />
+    {{ userService.professionalQualificationVariable | json }} -->
+
+    <!-- Educational qualification form div -->
+    <div class="qualificationDiv educationalQualificationDiv">
+      <div
+        class="qualificationHeaderDiv educationalHeaderDiv"
+        (click)="qualificationHeaderClickHandler('educationalHeaderDiv')"
+      >
+        <p>Educational Qualifications</p>
+        <div class="divider"></div>
+        <img src="{{ walkinIconBaseFolderURL }}expand_less_green.svg" alt="" />
+      </div>
+      <div
+        class="formInputDivContainer educationalInputFieldsDiv"
+        [class.hidden]="!isEducationalQualificationExpanded"
+      >
+        <!-- Aggregate percentage input div -->
+        <div class="smallInputDiv aggregatePercentageInputDiv">
+          <label for="aggregatePercentageText">Aggregate Percentage*</label>
+          <input
+            name="aggregatePercentage"
+            type="number"
+            min="0"
+            max="100"
+            step="0.01"
+            required
+            [(ngModel)]="
+              userService.educationalQualificationVariable.aggregatePercetage
+            "
+            #aggregatePercentage="ngModel"
+            [class.error]="
+              aggregatePercentage.invalid && aggregatePercentage.touched
+            "
+          />
+        </div>
+
+        <!-- Year of passing -->
+        <div class="smallInputDiv yearOfPassingDiv">
+          <label for="yearOfPassingInput">Year Of Passing*</label>
+          <select
+            name="year"
+            required
+            [(ngModel)]="
+              userService.educationalQualificationVariable.yearOfPassing
+            "
+            #yearOfPassing="ngModel"
+            [class.error]="yearOfPassing.invalid && yearOfPassing.touched"
+          ></select>
+        </div>
+
+        <!-- Qualification Stream div -->
+        <div class="twoInputDiv">
+          <!-- Qualification -->
+          <div class="largeInputDiv qualificationDiv">
+            <label for="qualificationInput">Qualification*</label>
+            <select
+              name="qualification"
+              required
+              [(ngModel)]="
+                userService.educationalQualificationVariable.qualification
+              "
+              #qualification="ngModel"
+              [class.error]="qualification.invalid && qualification.touched"
+            >
+              <option *ngFor="let qualificationItem of qualificationList">
+                {{ qualificationItem }}
+              </option>
+            </select>
+          </div>
+
+          <!-- Stream -->
+          <div class="largeInputDiv streamDiv">
+            <label for="streamInput">Stream*</label>
+            <select
+              name="stream"
+              required
+              [(ngModel)]="userService.educationalQualificationVariable.stream"
+              #stream="ngModel"
+              [class.error]="stream.invalid && stream.touched"
+            >
+              <option *ngFor="let streamItem of streamList">
+                {{ streamItem }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <!-- College row div -->
+        <div class="twoInputDiv">
+          <!-- College input div-->
+          <div class="largeInputDiv collegeDiv">
+            <label for="collegeInput">College*</label>
+            <select
+              name="collegeName"
+              required
+              [(ngModel)]="
+                userService.educationalQualificationVariable.collegeName
+              "
+              #collegeName="ngModel"
+              [class.error]="collegeName.invalid && collegeName.touched"
+            >
+              <option *ngFor="let collegeItem of collegeList">
+                {{ collegeItem }}
+              </option>
+            </select>
+          </div>
+
+          <!-- Others: College input div-->
+          <div class="largeInputDiv otherCollegeDiv">
+            <label for="otherCollegeInput"
+              >If Others, Please Enter Your College Name</label
+            >
+            <input
+              name="otherCollege"
+              id="otherCollegeInput"
+              type="text"
+              required
+              [(ngModel)]="
+                userService.educationalQualificationVariable.collegeName
+              "
+            />
+          </div>
+        </div>
+
+        <!-- College location input div -->
+        <div class="smallInputDiv collegeLocationInputDiv">
+          <label for="collegeLocationText"
+            >Where is your college located?*</label
+          >
+          <input
+            name="collegeLocation"
+            type="text"
+            required
+            [(ngModel)]="
+              userService.educationalQualificationVariable.collegeLocation
+            "
+            #collegeLocation="ngModel"
+            [class.error]="collegeLocation.invalid && collegeLocation.touched"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Professional qualification form div -->
+    <div class="professionalQualificationDiv">
+      <div
+        class="qualificationHeaderDiv professionalHeaderDiv"
+        (click)="qualificationHeaderClickHandler('professionalHeaderDiv')"
+      >
+        <p>Professional Qualifications</p>
+        <div class="divider"></div>
+        <img src="{{ walkinIconBaseFolderURL }}expand_less_green.svg" alt="" />
+      </div>
+      <div
+        class="professionalInputFieldsDiv"
+        [class.hidden]="!isProfessionalQualificationExpanded"
+      >
+        <div class="formInputDivContainer userTypeContainer">
+          <!-- User type radio -->
+          <div class="smallInputDiv userTypeDiv">
+            <label for="userTypeRadio">Applicant type*</label>
+            <div class="radioDiv">
+              <input
+                type="radio"
+                id="userType1"
+                name="userType"
+                value="Fresher"
+                (change)="radioChangehandler($event, 'userTypeDiv')"
+                checked
+              />
+              <label for="userType1">Fresher</label>
+              <pre>&#9;</pre>
+              <input
+                type="radio"
+                id="userType2"
+                name="userType"
+                value="Experienced"
+                (change)="radioChangehandler($event, 'userTypeDiv')"
+              />
+              <label for="userType2">Experienced</label>
+            </div>
+          </div>
+        </div>
+        <!-- Professional qualification input container -->
+        <div class="formInputDivContainer professionalFormInputDiv">
+          <div
+            class="experiencedUserDetailsDiv"
+            [class.hidden]="
+              !userService.professionalQualificationVariable.isUserExperienced
+            "
+          >
+            <!--Years of experience input div -->
+            <div class="smallInputDiv yearsOfExperienceInputDiv">
+              <label for="yearsOfExperienceText">Years of Experience*</label>
+              <input
+                name="yearsOfExperience"
+                type="number"
+                required
+                [(ngModel)]="
+                  userService.professionalQualificationVariable
+                    .yearsOfExperience
+                "
+                #yearsOfExperience="ngModel"
+                [class.error]="
+                  yearsOfExperience.invalid && yearsOfExperience.touched
+                "
+              />
+            </div>
+
+            <!--Current CTC input div -->
+            <div class="smallInputDiv currentCTCInputDiv">
+              <label for="currentCTCText">Current CTC* (In Rupees)</label>
+              <input
+                name="currentCTC"
+                type="number"
+                required
+                [(ngModel)]="
+                  userService.professionalQualificationVariable.currentCTC
+                "
+                #currentCTC="ngModel"
+                [class.error]="currentCTC.invalid && currentCTC.touched"
+              />
+            </div>
+
+            <!--Expected CTC input div -->
+            <div class="smallInputDiv expectedCTCInputDiv">
+              <label for="expectedCTCText">Expected CTC* (In Rupees)</label>
+              <input
+                name="expectedCTC"
+                type="number"
+                required
+                [(ngModel)]="
+                  userService.professionalQualificationVariable.expectedCTC
+                "
+                #expectedCTC="ngModel"
+                [class.error]="expectedCTC.invalid && expectedCTC.touched"
+              />
+            </div>
+
+            <!-- Expertised technologies input div -->
+            <div class="checkBoxInputDiv expertiseTechInputDiv">
+              <label>Select All The Technologies You Expertise In*</label>
+
+              <!-- ngFor when fetching technologies from database -->
+              <!-- Tech1 -->
+              <div
+                class="checkBoxDiv expertiseTech1CheckBoxDiv"
+                (click)="checkBoxClickHandler('expertiseTech1CheckBoxDiv')"
+              >
+                <img
+                  src="{{ quantumIconBaseFolderURL }}checkbox-unchecked.svg"
+                  alt="Unchecked checkbox"
+                />
+                <p>Javascript</p>
+              </div>
+
+              <!-- Tech2 -->
+              <div
+                class="checkBoxDiv expertiseTech2CheckBoxDiv"
+                (click)="checkBoxClickHandler('expertiseTech2CheckBoxDiv')"
+              >
+                <img
+                  src="{{ quantumIconBaseFolderURL }}checkbox-unchecked.svg"
+                  alt="Unchecked checkbox"
+                />
+                <p>Angular JS</p>
+              </div>
+
+              <!-- Tech3 -->
+              <div
+                class="checkBoxDiv expertiseTech3CheckBoxDiv"
+                (click)="checkBoxClickHandler('expertiseTech3CheckBoxDiv')"
+              >
+                <img
+                  src="{{ quantumIconBaseFolderURL }}checkbox-unchecked.svg"
+                  alt="Unchecked checkbox"
+                />
+                <p>React</p>
+              </div>
+            </div>
+
+            <!-- Other expertise technology input div-->
+            <div class="largeInputDiv otherExpertiseTechnologyDiv">
+              <label for="otherExpertiseTechnologyInput"
+                >If Others, Please Mention</label
+              >
+              <input
+                name="otherExpertiseTechnology"
+                type="text"
+                [(ngModel)]="
+                  userService.professionalQualificationVariable
+                    .otherExpertiseTechnology
+                "
+              />
+            </div>
+          </div>
+
+          <!-- compulsory fields -->
+          <div class="">
+            <!-- Familiar technologies input div -->
+            <div class="checkBoxInputDiv familiarTechInputDiv">
+              <label>Select All The Technologies You Familiar In*</label>
+
+              <!-- ngFor when fetching technologies from database -->
+              <!-- Tech1 -->
+              <div
+                class="checkBoxDiv familiarTech1CheckBoxDiv"
+                (click)="checkBoxClickHandler('familiarTech1CheckBoxDiv')"
+              >
+                <img
+                  *ngIf="userService.personalInformationVariable.mailUpdates"
+                  src="{{ quantumIconFolderBaseURL }}checkbox-checked.svg"
+                  alt="Checked"
+                />
+                <img
+                  *ngIf="!userService.personalInformationVariable.mailUpdates"
+                  src="{{ quantumIconFolderBaseURL }}checkbox-unchecked.svg"
+                  alt="Unchecked"
+                />
+                <img
+                  src="{{ quantumIconBaseFolderURL }}checkbox-unchecked.svg"
+                  alt="Unchecked checkbox"
+                />
+                <p>Javascript</p>
+              </div>
+
+              <!-- Tech2 -->
+              <div
+                class="checkBoxDiv familiarTech2CheckBoxDiv"
+                (click)="checkBoxClickHandler('familiarTech2CheckBoxDiv')"
+              >
+                <img
+                  src="{{ quantumIconBaseFolderURL }}checkbox-unchecked.svg"
+                  alt="Unchecked checkbox"
+                />
+                <p>Angular JS</p>
+              </div>
+
+              <!-- Tech3 -->
+              <div
+                class="checkBoxDiv familiarTech3CheckBoxDiv"
+                (click)="checkBoxClickHandler('familiarTech3CheckBoxDiv')"
+              >
+                <img
+                  src="{{ quantumIconBaseFolderURL }}checkbox-unchecked.svg"
+                  alt="Unchecked checkbox"
+                />
+                <p>React</p>
+              </div>
+            </div>
+
+            <!-- Other Familiar technology input div-->
+            <div class="largeInputDiv otherFamiliarTechnologyDiv">
+              <label for="otherFamiliarTechnologyInput"
+                >If Others, Please Mention</label
+              >
+              <input
+                name="otherFamiliarTechnology"
+                type="text"
+                [(ngModel)]="
+                  userService.professionalQualificationVariable
+                    .otherFamiliarTechnology
+                "
+              />
+            </div>
+
+            <!-- Notice period details -->
+            <div
+              class="noticePeriodDiv"
+              [class.hidden]="
+                !userService.professionalQualificationVariable.isUserExperienced
+              "
+            >
+              <!-- Notice period radio -->
+              <div class="smallInputDiv noticePeriodRadioDiv">
+                <label for="noticePeriodRadio"
+                  >Are You Currently On Notice Period?*</label
+                >
+                <div class="radioDiv">
+                  <input
+                    type="radio"
+                    id="noticePeriod1"
+                    name="noticePeriod"
+                    value="Yes"
+                    (change)="radioChangehandler($event, 'noticePeriodDiv')"
+                    checked
+                  />
+                  <label for="noticePeriod1">Yes</label>
+                  <pre>&#9;</pre>
+                  <input
+                    type="radio"
+                    id="noticePeriod2"
+                    name="noticePeriod"
+                    value="No"
+                    (change)="radioChangehandler($event, 'noticePeriodDiv')"
+                  />
+                  <label for="noticePeriod2">No</label>
+                </div>
+              </div>
+
+              <!-- Notice period end date and notice period length div -->
+              <div class="twoInputDiv">
+                <!-- Notice period end date div-->
+                <div class="largeInputDiv noticeEndDateDiv">
+                  <label for="noticeEndDateInput"
+                    >If Yes, When Will Your Notice Period End?*</label
+                  >
+                  <input
+                    name="noticeEndDate"
+                    type="text"
+                    required
+                    [(ngModel)]="
+                      userService.professionalQualificationVariable
+                        .noticePeriodEndDate
+                    "
+                    #noticeEndDate="ngModel"
+                    [class.error]="
+                      noticeEndDate.invalid && noticeEndDate.touched
+                    "
+                  />
+                </div>
+
+                <!-- notice period length div -->
+                <div class="largeInputDiv noticeLengthDiv">
+                  <label for="noticeLengthInput"
+                    >How Long Is Your Notice Period?* (Mention in Months)</label
+                  >
+                  <input
+                    name="noticeLength"
+                    type="text"
+                    required
+                    [(ngModel)]="
+                      userService.professionalQualificationVariable
+                        .noticePeriodDuration
+                    "
+                    #noticeLength="ngModel"
+                    [class.error]="noticeLength.invalid && noticeLength.touched"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Appeared for test radio -->
+            <div class="smallInputDiv appearedForTestDiv">
+              <label for="appearedForTestRadio"
+                >Have You Appeared For Any Test By Zeus In The Past 12
+                Months?*</label
+              >
+              <div class="radioDiv">
+                <input
+                  type="radio"
+                  name="appearedForTest"
+                  value="Yes"
+                  (change)="radioChangehandler($event, 'appearedForTestDiv')"
+                />
+                <label for="appearedForTest1">Yes</label>
+                <pre>&#9;</pre>
+                <input
+                  type="radio"
+                  name="appearedForTest"
+                  value="No"
+                  (change)="radioChangehandler($event, 'appearedForTestDiv')"
+                  checked
+                />
+                <label for="appearedForTest2">No</label>
+              </div>
+            </div>
+
+            <!-- Previously applied role input div-->
+            <div class="largeInputDiv previouslyAppliedRoleDiv">
+              <label for="previouslyAppliedRoleInput"
+                >If yes, Which Role Did you apply for?</label
+              >
+              <input
+                name="previouslyAppliedRole"
+                type="text"
+                required
+                [(ngModel)]="
+                  userService.professionalQualificationVariable
+                    .roleAppliedPreviously
+                "
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Qualification page button div -->
+    <div class="formButtonDiv">
+      <button routerLink="../personalInformationForm">Previous</button>
+      <button type="submit" routerLink="../reviewForm">Next</button>
+    </div>
+  </form>
+</div>
