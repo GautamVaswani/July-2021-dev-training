@@ -106,6 +106,7 @@
 /* Checkbox */
 .checkBoxDiv {
   display: flex;
+  width: fit-content;
   align-items: center;
   cursor: pointer;
   margin-bottom: 20px;
@@ -135,4 +136,16 @@
   box-shadow: 0px 3px 5px #0000003d;
   border-radius: 2px;
   border: none;
+}
+
+@media only screen and (max-width: 740px) {
+  .uploadImageDiv {
+    position: static;
+    width: inherit;
+    padding-top: 24px;
+  }
+
+  .textInputDiv {
+    max-width: 100%;
+  }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/core/services/user/user.service';
 
 @Component({
@@ -9,20 +10,32 @@ import { UserService } from 'src/app/core/services/user/user.service';
 export class QualificationFormComponent implements OnInit {
 
   walkinIconBaseFolderURL: string = "../../../assets/walk-in-portal-icons/";
-  quantumIconBaseFolderURL: string = "../../../assets/quantum-screen-assets/icons/";
+  quantumIconFolderBaseURL: string = "../../../assets/quantum-screen-assets/icons/";
   isEducationalQualificationExpanded: boolean = true;
   isProfessionalQualificationExpanded: boolean = true;
 
-  qualificationList: string[] = [];
-  streamList: string[] = [];
-  collegeList: string[] = [];
+  yearList: number[] = [2020, 2021];
+  qualificationList: string[] = ["Q1", "Q2"];
+  streamList: string[] = ["S1", "S2"];
+  collegeList: string[] = ["C1", "C2"];
+  
 
-  constructor(public userService: UserService) {
+  constructor(public userService: UserService, private router: Router, private route: ActivatedRoute) {
     // this.populateYearSelectInput();
   }
 
   ngOnInit(): void {
     
+  }
+
+  saveQualificationInformation(formState: boolean){
+    if(formState){
+      this.userService.qualificationInformationFilledVariable = true;
+      this.router.navigate(['../','reviewForm'],{ relativeTo: this.route });
+    }
+    else{
+      console.log("Form not filled, please enter the form details!");
+    }
   }
 
   qualificationHeaderClickHandler(className: string){
@@ -51,37 +64,24 @@ export class QualificationFormComponent implements OnInit {
     } 
   }
 
-  // populateYearSelectInput(){
-  //   let yearDropdown = document.getElementById('yearOfPassingInput');
-  //   if(yearDropdown){
-  //     let date = new Date();
-  //     let year = date.getFullYear();
-  //     for (let i = 1990; i <= year; i++) {
-  //       this.yearList.push(i);
-  //       // var option = document.createElement('option');
-  //       // option.value = option.innerHTML = i.toString();
-  //       // if (i === year) option.selected = true;
-  //       // yearDropdown.appendChild(option);
-  //     }
-  //   }
-  // }
+  populateYearSelectInput(){
+    let yearDropdown = document.getElementById('yearOfPassingInput');
+    if(yearDropdown){
+      let date = new Date();
+      let year = date.getFullYear();
+      for (let i = 1990; i <= year; i++) {
+        this.yearList.push(i);
+      }
+    }
+  }
   
   radioChangehandler(event: any, className: string): void{
-    console.log(className)
     if(className.includes("userType")){
       if(event.target.value === "Experienced"){
         this.userService.professionalQualificationVariable.isUserExperienced = true;
       }
       else{
         this.userService.professionalQualificationVariable.isUserExperienced = false;
-      }
-    }
-    else if(className.includes("appearedForTest")){
-      if(event.target.value === "Yes"){
-        this.userService.professionalQualificationVariable.zeusTestAppeared = true;
-      }
-      else{
-        this.userService.professionalQualificationVariable.zeusTestAppeared = false;
       }
     }
     else if(className.includes("noticePeriod")){
@@ -92,6 +92,14 @@ export class QualificationFormComponent implements OnInit {
         this.userService.professionalQualificationVariable.onNoticePeriod = false;
       }
     }
+    else if(className.includes("appearedForTest")){
+      if(event.target.value === "Yes"){
+        this.userService.professionalQualificationVariable.zeusTestAppeared = true;
+      }
+      else{
+        this.userService.professionalQualificationVariable.zeusTestAppeared = false;
+      }
+    }
   }
 
   checkBoxClickHandler(className: string){
@@ -100,25 +108,21 @@ export class QualificationFormComponent implements OnInit {
     if(checkbox && technology){
       if(className.includes("expertiseTech")){
         if(this.userService.professionalQualificationVariable.expertiseTechnologyList.includes(technology)){
-          checkbox.src = `${this.quantumIconBaseFolderURL}checkbox-unchecked.svg`;
           this.userService.professionalQualificationVariable.expertiseTechnologyList = 
           this.userService.professionalQualificationVariable.expertiseTechnologyList
           .filter(item => item !== technology);
         }
         else{
-          checkbox.src = `${this.quantumIconBaseFolderURL}checkbox-checked.svg`; 
           this.userService.professionalQualificationVariable.expertiseTechnologyList.push(technology);
         }
       }
       else if(className.includes("familiarTech")) {
         if(this.userService.professionalQualificationVariable.familiarTechnologyList.includes(technology)){
-          checkbox.src = `${this.quantumIconBaseFolderURL}checkbox-unchecked.svg`;
           this.userService.professionalQualificationVariable.familiarTechnologyList = 
           this.userService.professionalQualificationVariable.familiarTechnologyList
           .filter(item => item !== technology);
         }
         else{
-          checkbox.src = `${this.quantumIconBaseFolderURL}checkbox-checked.svg`; 
           this.userService.professionalQualificationVariable.familiarTechnologyList.push(technology);
         }
       }

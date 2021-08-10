@@ -1,15 +1,19 @@
 <div class="personalInformationFormContainer">
   <div class="uploadImageDiv">
     <img
-      src="{{ walkinIconFolderBaseURL }}profile_upload.png"
+      src="{{ walkinIconBaseFolderURL }}profile_upload.png"
       alt="Upload display picture"
       class="uploadImage"
     />
     <p class="uploadPictureText">Upload Display Picture</p>
     <p class="uploadPictureInstructionText">Max. image size 5 MB</p>
   </div>
-  <form class="personalInformationForm" #personalInformationForm="ngForm">
-    <!-- {{ personalInformationForm.value | json }} -->
+  <form
+    class="personalInformationForm"
+    #personalInformationForm="ngForm"
+    (ngSubmit)="savePersonalInformation(personalInformationForm.form.valid)"
+  >
+    <!-- {{ personalInformationForm.valid | json }} -->
     <div class="formInputDiv">
       <!-- First name input div -->
       <div class="textInputDiv firstNameInputDiv">
@@ -84,7 +88,7 @@
       <!-- Upload resume div -->
       <div class="resumeUploadDiv">
         <img
-          src="{{ walkinIconFolderBaseURL }}upload_green.svg"
+          src="{{ walkinIconBaseFolderURL }}upload_green.svg"
           alt="Upload icon"
         />
         <p>UPLOAD RESUME</p>
@@ -218,7 +222,13 @@
 
     <!-- personalInformationForm page button div -->
     <div class="formButtonDiv">
-      <button type="submit" routerLink="../qualificationForm">Next</button>
+      <button
+        type="submit"
+        [class.disabledButton]="!personalInformationForm.form.valid"
+      >
+        <!-- [disabled]="!personalInformationForm.form.valid" -->
+        Next
+      </button>
     </div>
   </form>
 </div>

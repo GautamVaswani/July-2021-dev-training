@@ -18,6 +18,7 @@ export interface IEducationQualification{
     qualification: string;
     stream: string;
     collegeName: string;
+    otherCollegeName: string;
     collegeLocation: string;
 }
 

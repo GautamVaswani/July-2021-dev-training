@@ -6,14 +6,14 @@ import { WalkinAppliedSuccessfullyComponent } from './walkin-applied-successfull
 import { WalkinDetailsComponent } from './walkin-details/walkin-details.component';
 
 const routes: Routes = [
-  { path: "applicantDashboard",
+  { path: "",
   component: ApplicantDashboardComponent,
     children: [
-        { path: "allWalkins", component: AllWalkinsComponent},
-        { path: "walkinDetails", component: WalkinDetailsComponent},
+        { path: "walkins", component: AllWalkinsComponent},
+        { path: "walkins/:id", component: WalkinDetailsComponent},
         { path: "walkinAppliedSuccessfully", component: WalkinAppliedSuccessfullyComponent},
-        { path: "", pathMatch: "full" ,redirectTo: "walkinDetails"},
-        { path: "**", redirectTo: "allWalkins"}
+        { path: "", pathMatch: "full" ,redirectTo: "walkins"},
+        // { path: "**", redirectTo: "walkins"}
     ]
   }
 ];
@@ -23,3 +23,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class ApplicantDashboardRoutingModule { }
+export const routerComponents = [ApplicantDashboardComponent, AllWalkinsComponent, WalkinDetailsComponent, WalkinAppliedSuccessfullyComponent];

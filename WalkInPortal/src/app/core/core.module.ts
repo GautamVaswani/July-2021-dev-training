@@ -1,6 +1,10 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserService } from './services/user/user.service';
+import { WalkinService } from './services/walkin/walkin.service';
+import { QualificationFormGuard } from './guard/form/qualification-form.guard';
+import { ReviewFormGuard } from './guard/form/review-form.guard';
+import { AuthGuard } from './guard/auth/auth.guard';
 
 
 
@@ -9,7 +13,7 @@ import { UserService } from './services/user/user.service';
   imports: [
     CommonModule
   ],
-  providers: [UserService]
+  providers: [UserService, WalkinService, AuthGuard, QualificationFormGuard, ReviewFormGuard]
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() core:CoreModule ){

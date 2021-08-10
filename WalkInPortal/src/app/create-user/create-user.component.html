@@ -12,13 +12,16 @@
     </div>
     <div class="centerText">Create An Account</div>
     <div class="userCancelCreateButtonDiv">
-      <button class="cancelUserButton" (click)="clickHandler()">CANCEL</button>
+      <button class="cancelUserButton" routerLink="../login">CANCEL</button>
       <button
         class="createUserButton"
-        [ngStyle]="{ opacity: getOpacity() }"
+        [ngStyle]="{ opacity: setOpacity() }"
         [disabled]="
-          isPersonalInformationFilled && isQualificationsFilled ? false : true
+          isPersonalInformationFilled && isQualificationInformationFilled
+            ? false
+            : true
         "
+        (click)="createAccount()"
       >
         CREATE
       </button>
@@ -28,9 +31,15 @@
   <div class="formNavContainer">
     <hr />
     <div class="navItems">
-      <div>Personal Information</div>
-      <div>Qualifications</div>
-      <div>Review and Proceed</div>
+      <div routerLink="personalInformationForm">
+        <div>
+          <img src="" alt="" />
+          <img src="" alt="" />
+        </div>
+        <p>Personal Information</p>
+      </div>
+      <div routerLink="qualificationForm">Qualifications</div>
+      <div routerLink="reviewForm">Review and Proceed</div>
     </div>
   </div>
   <!-- ------------------------------ Create User Header End ------------------------------------- -->

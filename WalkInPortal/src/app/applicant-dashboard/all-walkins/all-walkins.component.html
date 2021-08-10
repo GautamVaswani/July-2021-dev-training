@@ -24,15 +24,6 @@
         </div>
         <div class="verticalPartition"></div>
         <div class="locationDiv">
-          <!-- <svg>
-            <image
-              href="{{ walkinIconBaseURL }}location_on_black_24dp.svg"
-              x="0"
-              y="0"
-              height="50px"
-              width="50px"
-            />
-          </svg> -->
           <img src="{{ walkinIconBaseURL }}location_on_black_24dp.svg" alt="" />
           <p>Mumbai</p>
         </div>
@@ -69,7 +60,7 @@
 
     <!-- View more button div -->
     <div class="viewMoreButtonDiv">
-      <button>VIEW MORE DETAILS</button>
+      <button (click)="walkinDetails(1)">VIEW MORE DETAILS</button>
     </div>
   </div>
 </div>

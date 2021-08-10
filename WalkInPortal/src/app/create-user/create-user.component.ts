@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from '../core/services/user/user.service';
 
 @Component({
   selector: 'app-create-user',
@@ -9,9 +10,16 @@ import { Router } from '@angular/router';
 export class CreateUserComponent implements OnInit {
 
   isPersonalInformationFilled: boolean = false;
-  isQualificationsFilled: boolean = false
+  isQualificationInformationFilled: boolean = false
 
-  constructor(private router: Router) { }
+  constructor(public userService:UserService ,private router: Router) {
+    // this.userService.personalInformationFilledVariable.subscribe((value) => {      
+    //   this.isPersonalInformationFilled = value;
+    // });
+    // this.userService.qualificationInformationFilledVariable.subscribe((value) =>{
+    //   this.isQualificationInformationFilled = value;
+    // });
+  }
 
   ngOnInit(): void {
   }
@@ -20,15 +28,15 @@ export class CreateUserComponent implements OnInit {
     this.router.navigateByUrl("login");
   }
 
-  getOpacity(): number{
-    if (this.isPersonalInformationFilled && this.isQualificationsFilled){
+  setOpacity(): number{
+    if (this.isPersonalInformationFilled && this.isQualificationInformationFilled){
       return 1;
     }
     return 0.5;
   }
 
-  clickHandler(){
-    console.log("clicked");
+  createAccount(){
+    console.log("Create user clicked");
   }
 
 }

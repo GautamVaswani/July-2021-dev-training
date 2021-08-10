@@ -17,6 +17,11 @@ import { LoginBodyComponent } from './login-body/login-body.component';
   imports: [
     CommonModule,
     FormsModule
+  ],
+  exports: [
+    LoginComponent,
+    LoginHeaderComponent,
+    LoginBodyComponent
   ]
 })
 export class LoginModule { }

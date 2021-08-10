@@ -72,8 +72,7 @@ select {
 .smallInputDiv {
   display: flex;
   flex-direction: column;
-  width: max(180px, 30%);
-  /* max-width: 180px; */
+  width: max(200px, 35%);
   margin-bottom: 40px;
 }
 
@@ -93,7 +92,7 @@ select {
 .largeInputDiv {
   display: flex;
   flex-direction: column;
-  width: 45%;
+  width: 48%;
   /* max-width: 480px; */
   margin-bottom: 40px;
 }
@@ -134,6 +133,7 @@ select {
 /* Radio start*/
 .radioDiv {
   display: flex;
+  align-items: center;
   /* justify-content: space-between; */
 }
 
@@ -141,26 +141,18 @@ select {
   margin: 0;
 }
 
-.radioDiv > input[type="radio"] {
+.radio {
+  display: flex;
+  align-items: center;
+  margin-right: 50px;
+}
+
+.radio > input[type="radio"] {
   display: none;
 }
 
-.radioDiv > input[type="radio"] + *::before {
-  content: "";
-  display: inline-block;
-  vertical-align: bottom;
-  width: 1rem;
-  height: 1rem;
-  margin-right: 0.3rem;
-  border-radius: 50%;
-  border-style: solid;
-  border-width: 0.15rem;
-  border-color: #1f7a54;
-}
-
-.radioDiv > input[type="radio"]:checked + *::before {
-  background: radial-gradient(teal 0%, teal 40%, transparent 50%, transparent);
-  border-color: #1f7a54;
+.radio > .radioLabel {
+  padding-bottom: 5px;
 }
 /* Radio end */
 
@@ -188,6 +180,7 @@ select {
 
 .checkBoxDiv {
   display: flex;
+  align-items: center;
   margin-bottom: 16px;
 }
 
@@ -227,4 +220,23 @@ select {
   box-shadow: 0px 3px 5px #0000003d;
   border-radius: 2px;
   border: none;
+}
+
+@media only screen and (max-width: 650px) {
+  .smallInputDiv {
+    width: 100%;
+  }
+
+  .largeInputDiv {
+    width: 100%;
+  }
+
+  .twoInputDiv {
+    flex-direction: column;
+  }
+
+  .radioDiv {
+    display: block;
+    position: relative;
+  }
 }

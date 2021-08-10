@@ -1,10 +1,14 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { IEducationQualification, IPersonalInformation, IProfessionalQualification } from 'src/app/shared/models/user.model.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+
+  personalInformationFilledVariable: boolean = false;
+  qualificationInformationFilledVariable: boolean = false;
 
   personalInformationVariable: IPersonalInformation = {
     firstName: "",
@@ -26,6 +30,7 @@ export class UserService {
     qualification: "",
     stream: "",
     collegeName: "",
+    otherCollegeName: "",
     collegeLocation: ""
   }
 
@@ -48,4 +53,12 @@ export class UserService {
   }
 
   constructor() { }
+
+  personalInformationFilled(){
+    return this.personalInformationFilledVariable;
+  }
+
+  qualificationInformationFilled(){
+    return this.qualificationInformationFilledVariable;
+  }
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/core/services/user/user.service';
 
 @Component({
@@ -8,10 +9,12 @@ import { UserService } from 'src/app/core/services/user/user.service';
 })
 export class PersonalInformationFormComponent implements OnInit {
 
-  walkinIconFolderBaseURL: string = "/assets/walk-in-portal-icons/";
+  walkinIconBaseFolderURL: string = "/assets/walk-in-portal-icons/";
   quantumIconFolderBaseURL: string = "/assets/quantum-screen-assets/icons/";
 
-  constructor(public userService: UserService) { }
+  // @Output() personalInformationFilledEvent = new EventEmitter();
+
+  constructor(public userService: UserService, private router: Router, private route: ActivatedRoute) { }
   ngOnInit(): void {
   }
 
@@ -38,6 +41,19 @@ export class PersonalInformationFormComponent implements OnInit {
       = !this.userService.personalInformationVariable.mailUpdates;
       console.log(this.userService.personalInformationVariable);
     } 
+  }
+
+  savePersonalInformation(formState: boolean){
+    // this.personalInformationFilledEvent.emit(true);
+    if(formState){
+      this.userService.personalInformationFilledVariable = true;
+      this.router.navigate(['../','qualificationForm'],{ relativeTo: this.route });
+    }
+    else{
+      console.log("Form not filled, please enter the form details!");
+      // this.router.navigate(['../','personalInformationForm'],{ relativeTo: this.route });
+    }
+    
   }
 
 }

@@ -1,9 +1,9 @@
 <div class="qualificationFormContainer">
-  <form class="qualificationForm" ng-submit="submit()" ngNativeValidate>
-    <!-- {{ userService.educationalQualificationVariable | json }}
-    <br />
-    {{ userService.professionalQualificationVariable | json }} -->
-
+  <form
+    class="qualificationForm"
+    #qualificationForm="ngForm"
+    (ngSubmit)="saveQualificationInformation(qualificationForm.form.valid)"
+  >
     <!-- Educational qualification form div -->
     <div class="qualificationDiv educationalQualificationDiv">
       <div
@@ -49,7 +49,11 @@
             "
             #yearOfPassing="ngModel"
             [class.error]="yearOfPassing.invalid && yearOfPassing.touched"
-          ></select>
+          >
+            <option value="{{ year }}" *ngFor="let year of yearList">
+              {{ year }}
+            </option>
+          </select>
         </div>
 
         <!-- Qualification Stream div -->
@@ -106,6 +110,7 @@
               <option *ngFor="let collegeItem of collegeList">
                 {{ collegeItem }}
               </option>
+              <option>Others</option>
             </select>
           </div>
 
@@ -118,9 +123,16 @@
               name="otherCollege"
               id="otherCollegeInput"
               type="text"
-              required
+              [required]="
+                userService.educationalQualificationVariable.collegeName ===
+                'Others'
+              "
               [(ngModel)]="
-                userService.educationalQualificationVariable.collegeName
+                userService.educationalQualificationVariable.otherCollegeName
+              "
+              #otherCollegeName="ngModel"
+              [class.error]="
+                otherCollegeName.invalid && otherCollegeName.touched
               "
             />
           </div>
@@ -161,27 +173,71 @@
       >
         <div class="formInputDivContainer userTypeContainer">
           <!-- User type radio -->
-          <div class="smallInputDiv userTypeDiv">
+          <div class="largeInputDiv userTypeDiv">
             <label for="userTypeRadio">Applicant type*</label>
             <div class="radioDiv">
-              <input
-                type="radio"
-                id="userType1"
-                name="userType"
-                value="Fresher"
-                (change)="radioChangehandler($event, 'userTypeDiv')"
-                checked
-              />
-              <label for="userType1">Fresher</label>
-              <pre>&#9;</pre>
-              <input
-                type="radio"
-                id="userType2"
-                name="userType"
-                value="Experienced"
-                (change)="radioChangehandler($event, 'userTypeDiv')"
-              />
-              <label for="userType2">Experienced</label>
+              <div class="radio">
+                <label for="userType1">
+                  <img
+                    *ngIf="
+                      !userService.professionalQualificationVariable
+                        .isUserExperienced
+                    "
+                    src="{{ walkinIconBaseFolderURL }}radio_button_checked.svg"
+                    alt="radio-icon"
+                  />
+                  <img
+                    *ngIf="
+                      userService.professionalQualificationVariable
+                        .isUserExperienced
+                    "
+                    src="{{
+                      walkinIconBaseFolderURL
+                    }}radio_button_unchecked.svg"
+                    alt="radio-icon"
+                  />
+                </label>
+                <input
+                  type="radio"
+                  id="userType1"
+                  name="userType"
+                  value="Fresher"
+                  (change)="radioChangehandler($event, 'userTypeDiv')"
+                  checked
+                />
+                <label class="radioLabel" for="userType1">Fresher</label>
+              </div>
+              <!-- <pre>&#9;</pre> -->
+              <div class="radio">
+                <label for="userType2">
+                  <img
+                    *ngIf="
+                      userService.professionalQualificationVariable
+                        .isUserExperienced
+                    "
+                    src="{{ walkinIconBaseFolderURL }}radio_button_checked.svg"
+                    alt="radio-icon"
+                  />
+                  <img
+                    *ngIf="
+                      !userService.professionalQualificationVariable
+                        .isUserExperienced
+                    "
+                    src="{{
+                      walkinIconBaseFolderURL
+                    }}radio_button_unchecked.svg"
+                    alt="radio-icon"
+                  />
+                </label>
+                <input
+                  type="radio"
+                  id="userType2"
+                  name="userType"
+                  value="Experienced"
+                  (change)="radioChangehandler($event, 'userTypeDiv')"
+                />
+                <label class="radioLabel" for="userType2">Experienced</label>
+              </div>
             </div>
           </div>
         </div>
@@ -199,7 +255,10 @@
               <input
                 name="yearsOfExperience"
                 type="number"
-                required
+                [required]="
+                  userService.professionalQualificationVariable
+                    .isUserExperienced
+                "
                 [(ngModel)]="
                   userService.professionalQualificationVariable
                     .yearsOfExperience
@@ -217,7 +276,10 @@
               <input
                 name="currentCTC"
                 type="number"
-                required
+                [required]="
+                  userService.professionalQualificationVariable
+                    .isUserExperienced
+                "
                 [(ngModel)]="
                   userService.professionalQualificationVariable.currentCTC
                 "
@@ -232,7 +294,10 @@
               <input
                 name="expectedCTC"
                 type="number"
-                required
+                [required]="
+                  userService.professionalQualificationVariable
+                    .isUserExperienced
+                "
                 [(ngModel)]="
                   userService.professionalQualificationVariable.expectedCTC
                 "
@@ -252,8 +317,22 @@
                 (click)="checkBoxClickHandler('expertiseTech1CheckBoxDiv')"
               >
                 <img
-                  src="{{ quantumIconBaseFolderURL }}checkbox-unchecked.svg"
-                  alt="Unchecked checkbox"
+                  *ngIf="
+                    userService.professionalQualificationVariable.expertiseTechnologyList.includes(
+                      'Javascript'
+                    )
+                  "
+                  src="{{ quantumIconFolderBaseURL }}checkbox-checked.svg"
+                  alt="Checked"
+                />
+                <img
+                  *ngIf="
+                    !userService.professionalQualificationVariable.expertiseTechnologyList.includes(
+                      'Javascript'
+                    )
+                  "
+                  src="{{ quantumIconFolderBaseURL }}checkbox-unchecked.svg"
+                  alt="Unchecked"
                 />
                 <p>Javascript</p>
               </div>
@@ -264,8 +343,22 @@
                 (click)="checkBoxClickHandler('expertiseTech2CheckBoxDiv')"
               >
                 <img
-                  src="{{ quantumIconBaseFolderURL }}checkbox-unchecked.svg"
-                  alt="Unchecked checkbox"
+                  *ngIf="
+                    userService.professionalQualificationVariable.expertiseTechnologyList.includes(
+                      'Angular JS'
+                    )
+                  "
+                  src="{{ quantumIconFolderBaseURL }}checkbox-checked.svg"
+                  alt="Checked"
+                />
+                <img
+                  *ngIf="
+                    !userService.professionalQualificationVariable.expertiseTechnologyList.includes(
+                      'Angular JS'
+                    )
+                  "
+                  src="{{ quantumIconFolderBaseURL }}checkbox-unchecked.svg"
+                  alt="Unchecked"
                 />
                 <p>Angular JS</p>
               </div>
@@ -276,8 +369,22 @@
                 (click)="checkBoxClickHandler('expertiseTech3CheckBoxDiv')"
               >
                 <img
-                  src="{{ quantumIconBaseFolderURL }}checkbox-unchecked.svg"
-                  alt="Unchecked checkbox"
+                  *ngIf="
+                    userService.professionalQualificationVariable.expertiseTechnologyList.includes(
+                      'React'
+                    )
+                  "
+                  src="{{ quantumIconFolderBaseURL }}checkbox-checked.svg"
+                  alt="Checked"
+                />
+                <img
+                  *ngIf="
+                    !userService.professionalQualificationVariable.expertiseTechnologyList.includes(
+                      'React'
+                    )
+                  "
+                  src="{{ quantumIconFolderBaseURL }}checkbox-unchecked.svg"
+                  alt="Unchecked"
                 />
                 <p>React</p>
               </div>
@@ -312,18 +419,22 @@
                 (click)="checkBoxClickHandler('familiarTech1CheckBoxDiv')"
               >
                 <img
-                  *ngIf="userService.personalInformationVariable.mailUpdates"
+                  *ngIf="
+                    userService.professionalQualificationVariable.familiarTechnologyList.includes(
+                      'Javascript'
+                    )
+                  "
                   src="{{ quantumIconFolderBaseURL }}checkbox-checked.svg"
                   alt="Checked"
                 />
                 <img
-                  *ngIf="!userService.personalInformationVariable.mailUpdates"
+                  *ngIf="
+                    !userService.professionalQualificationVariable.familiarTechnologyList.includes(
+                      'Javascript'
+                    )
+                  "
                   src="{{ quantumIconFolderBaseURL }}checkbox-unchecked.svg"
                   alt="Unchecked"
-                />
-                <img
-                  src="{{ quantumIconBaseFolderURL }}checkbox-unchecked.svg"
-                  alt="Unchecked checkbox"
                 />
                 <p>Javascript</p>
               </div>
@@ -334,8 +445,22 @@
                 (click)="checkBoxClickHandler('familiarTech2CheckBoxDiv')"
               >
                 <img
-                  src="{{ quantumIconBaseFolderURL }}checkbox-unchecked.svg"
-                  alt="Unchecked checkbox"
+                  *ngIf="
+                    userService.professionalQualificationVariable.familiarTechnologyList.includes(
+                      'Angular JS'
+                    )
+                  "
+                  src="{{ quantumIconFolderBaseURL }}checkbox-checked.svg"
+                  alt="Checked"
+                />
+                <img
+                  *ngIf="
+                    !userService.professionalQualificationVariable.familiarTechnologyList.includes(
+                      'Angular JS'
+                    )
+                  "
+                  src="{{ quantumIconFolderBaseURL }}checkbox-unchecked.svg"
+                  alt="Unchecked"
                 />
                 <p>Angular JS</p>
               </div>
@@ -346,8 +471,22 @@
                 (click)="checkBoxClickHandler('familiarTech3CheckBoxDiv')"
               >
                 <img
-                  src="{{ quantumIconBaseFolderURL }}checkbox-unchecked.svg"
-                  alt="Unchecked checkbox"
+                  *ngIf="
+                    userService.professionalQualificationVariable.familiarTechnologyList.includes(
+                      'React'
+                    )
+                  "
+                  src="{{ quantumIconFolderBaseURL }}checkbox-checked.svg"
+                  alt="Checked"
+                />
+                <img
+                  *ngIf="
+                    !userService.professionalQualificationVariable.familiarTechnologyList.includes(
+                      'React'
+                    )
+                  "
+                  src="{{ quantumIconFolderBaseURL }}checkbox-unchecked.svg"
+                  alt="Unchecked"
                 />
                 <p>React</p>
               </div>
@@ -376,29 +515,76 @@
               "
             >
               <!-- Notice period radio -->
-              <div class="smallInputDiv noticePeriodRadioDiv">
+              <div class="largeInputDiv noticePeriodRadioDiv">
                 <label for="noticePeriodRadio"
                   >Are You Currently On Notice Period?*</label
                 >
                 <div class="radioDiv">
-                  <input
-                    type="radio"
-                    id="noticePeriod1"
-                    name="noticePeriod"
-                    value="Yes"
-                    (change)="radioChangehandler($event, 'noticePeriodDiv')"
-                    checked
-                  />
-                  <label for="noticePeriod1">Yes</label>
-                  <pre>&#9;</pre>
-                  <input
-                    type="radio"
-                    id="noticePeriod2"
-                    name="noticePeriod"
-                    value="No"
-                    (change)="radioChangehandler($event, 'noticePeriodDiv')"
-                  />
-                  <label for="noticePeriod2">No</label>
+                  <div class="radio">
+                    <label for="noticePeriod1">
+                      <img
+                        *ngIf="
+                          userService.professionalQualificationVariable
+                            .onNoticePeriod
+                        "
+                        src="{{
+                          walkinIconBaseFolderURL
+                        }}radio_button_checked.svg"
+                        alt="radio-icon"
+                      />
+                      <img
+                        *ngIf="
+                          !userService.professionalQualificationVariable
+                            .onNoticePeriod
+                        "
+                        src="{{
+                          walkinIconBaseFolderURL
+                        }}radio_button_unchecked.svg"
+                        alt="radio-icon"
+                      />
+                    </label>
+                    <input
+                      type="radio"
+                      id="noticePeriod1"
+                      name="noticePeriod"
+                      value="Yes"
+                      (change)="radioChangehandler($event, 'noticePeriodDiv')"
+                      checked
+                    />
+                    <label class="radioLabel" for="noticePeriod1">Yes</label>
+                  </div>
+                  <div class="radio">
+                    <label for="noticePeriod2">
+                      <img
+                        *ngIf="
+                          !userService.professionalQualificationVariable
+                            .onNoticePeriod
+                        "
+                        src="{{
+                          walkinIconBaseFolderURL
+                        }}radio_button_checked.svg"
+                        alt="radio-icon"
+                      />
+                      <img
+                        *ngIf="
+                          userService.professionalQualificationVariable
+                            .onNoticePeriod
+                        "
+                        src="{{
+                          walkinIconBaseFolderURL
+                        }}radio_button_unchecked.svg"
+                        alt="radio-icon"
+                      />
+                    </label>
+                    <input
+                      type="radio"
+                      id="noticePeriod2"
+                      name="noticePeriod"
+                      value="No"
+                      (change)="radioChangehandler($event, 'noticePeriodDiv')"
+                    />
+                    <label class="radioLabel" for="noticePeriod2">No</label>
+                  </div>
                 </div>
               </div>
 
@@ -412,7 +598,12 @@
                   <input
                     name="noticeEndDate"
                     type="text"
-                    required
+                    [required]="
+                      userService.professionalQualificationVariable
+                        .onNoticePeriod &&
+                      userService.professionalQualificationVariable
+                        .isUserExperienced
+                    "
                     [(ngModel)]="
                       userService.professionalQualificationVariable
                         .noticePeriodEndDate
@@ -432,7 +623,12 @@
                   <input
                     name="noticeLength"
                     type="text"
-                    required
+                    [required]="
+                      userService.professionalQualificationVariable
+                        .onNoticePeriod &&
+                      userService.professionalQualificationVariable
+                        .isUserExperienced
+                    "
                     [(ngModel)]="
                       userService.professionalQualificationVariable
                         .noticePeriodDuration
@@ -445,28 +641,77 @@
             </div>
 
             <!-- Appeared for test radio -->
-            <div class="smallInputDiv appearedForTestDiv">
+            <div class="largeInputDiv appearedForTestDiv">
               <label for="appearedForTestRadio"
                 >Have You Appeared For Any Test By Zeus In The Past 12
                 Months?*</label
               >
               <div class="radioDiv">
-                <input
-                  type="radio"
-                  name="appearedForTest"
-                  value="Yes"
-                  (change)="radioChangehandler($event, 'appearedForTestDiv')"
-                />
-                <label for="appearedForTest1">Yes</label>
-                <pre>&#9;</pre>
-                <input
-                  type="radio"
-                  name="appearedForTest"
-                  value="No"
-                  (change)="radioChangehandler($event, 'appearedForTestDiv')"
-                  checked
-                />
-                <label for="appearedForTest2">No</label>
+                <div class="radio">
+                  <label for="appearedForTest1">
+                    <img
+                      *ngIf="
+                        userService.professionalQualificationVariable
+                          .zeusTestAppeared
+                      "
+                      src="{{
+                        walkinIconBaseFolderURL
+                      }}radio_button_checked.svg"
+                      alt="radio-icon"
+                    />
+                    <img
+                      *ngIf="
+                        !userService.professionalQualificationVariable
+                          .zeusTestAppeared
+                      "
+                      src="{{
+                        walkinIconBaseFolderURL
+                      }}radio_button_unchecked.svg"
+                      alt="radio-icon"
+                    />
+                  </label>
+                  <input
+                    type="radio"
+                    id="appearedForTest1"
+                    name="appearedForTest"
+                    value="Yes"
+                    (change)="radioChangehandler($event, 'appearedForTestDiv')"
+                    checked
+                  />
+                  <label class="radioLabel" for="appearedForTest1">Yes</label>
+                </div>
+                <div class="radio">
+                  <label for="appearedForTest2">
+                    <img
+                      *ngIf="
+                        !userService.professionalQualificationVariable
+                          .zeusTestAppeared
+                      "
+                      src="{{
+                        walkinIconBaseFolderURL
+                      }}radio_button_checked.svg"
+                      alt="radio-icon"
+                    />
+                    <img
+                      *ngIf="
+                        userService.professionalQualificationVariable
+                          .zeusTestAppeared
+                      "
+                      src="{{
+                        walkinIconBaseFolderURL
+                      }}radio_button_unchecked.svg"
+                      alt="radio-icon"
+                    />
+                  </label>
+                  <input
+                    type="radio"
+                    id="appearedForTest2"
+                    name="appearedForTest"
+                    value="No"
+                    (change)="radioChangehandler($event, 'appearedForTestDiv')"
+                  />
+                  <label class="radioLabel" for="appearedForTest2">No</label>
+                </div>
               </div>
             </div>
 
@@ -478,10 +723,12 @@
               <input
                 name="previouslyAppliedRole"
                 type="text"
-                required
                 [(ngModel)]="
                   userService.professionalQualificationVariable
                     .roleAppliedPreviously
+                "
+                [required]="
+                  userService.professionalQualificationVariable.zeusTestAppeared
                 "
               />
             </div>
@@ -492,8 +739,16 @@
 
     <!-- Qualification page button div -->
     <div class="formButtonDiv">
-      <button routerLink="../personalInformationForm">Previous</button>
-      <button type="submit" routerLink="../reviewForm">Next</button>
+      <button type="button" routerLink="../personalInformationForm">
+        Previous
+      </button>
+      <button
+        type="submit"
+        [class.disabledButton]="!qualificationForm.form.valid"
+      >
+        <!-- [disabled]="!qualificationForm.form.valid" -->
+        Next
+      </button>
     </div>
   </form>
 </div>
